@@ -10,5 +10,11 @@
         create: true
     ~/.vimrc: vimrc
     ~/.zshenv: zshenv
-
-
+    $XDG_CONFIG_HOME/alacritty/alacritty.toml: alacritty.toml
+    $XDG_CONFIG_HOME/fish/config.fish: config.fish
+    $XDG_CONFIG_HOME/nvim/init.vim: init.vim
+    $XDG_CONFIG_HOME/tmux/tmux.conf: tmux.conf
+    $XDG_CONFIG_HOME/zsh:
+      glob: true
+      path: zsh/*
+      prefix: '.'
