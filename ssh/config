@@ -1,0 +1,17 @@
+Include ~/.orbstack/ssh/config
+
+## START GITPOD INTEGRATION
+## This section is managed by Gitpod. Any manual changes will be lost.
+Include "code_gitpod.d/config"
+## END GITPOD INTEGRATION
+
+
+
+Host git-codecommit.*.amazonaws.com
+  User APKAW4UQG6E4B7EM6M7P
+
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa_mbp
+  IdentityFile ~/.ssh/id_rsa

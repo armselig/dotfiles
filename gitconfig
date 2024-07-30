@@ -1,0 +1,19 @@
+[user]
+	email = hendrik.neumann@digitas.com
+	name = Hendrik Neumann
+[submodule]
+	recurse = true
+[core]
+	excludesfile = /Users/henneuma/.gitignore_global
+[diff]
+    guitool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[init]
+	defaultBranch = main
