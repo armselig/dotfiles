@@ -1,8 +1,21 @@
+" This configuration is also sourced by nvim
+
 " PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
-    Plug 'vim-airline/vim-airline'          " nicer status line
-    Plug 'ryanoasis/vim-devicons'           " font icons in the interface
+    " the pope is the man
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+
     Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
+
+    " vim-only plugins
+    if !has('nvim')
+        Plug 'vim-airline/vim-airline'          " nicer status line
+        Plug 'ryanoasis/vim-devicons'           " font icons in the interface
+    endif
+
 call plug#end()
 
 " OPTIONS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -10,7 +23,7 @@ set autoindent				                " activate auto indentation
 set autoread				                " auto-reload files
 set background=dark
 set cc=80				                    " set column border
-set clipboard=unnamedplus		            " activate clipboard sharing
+set clipboard=unnamed,unnamedplus		    " activate clipboard sharing
 set cursorline				                " highlight current line
 set completeopt=noinsert,menuone,noselect   " auto-complete behaves more IDE-like
 set expandtab				                " uses space for tabs
@@ -44,7 +57,7 @@ let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 
 " NetRW file browser
-"let g:netrw_banner=0			            " hide top banner
+let g:netrw_banner=0			            " hide top banner
 let g:netrw_altv=1			                " switch display to left
 let g:netrw_winsize=25			            " window size is max 25%
 let g:netrw_liststyle=3                     " treeview 
@@ -56,7 +69,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer index
 let g:airline_powerline_fonts = 1           " enable powerline/nerd fonts
 
 " KEY BINDINGS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=" "
+let mapleader="\<Space>"
 
 " source .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
