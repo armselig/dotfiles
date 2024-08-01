@@ -87,6 +87,8 @@ nnoremap <leader>fb :Vex<CR>
 nnoremap <leader>ff :find 
 " close buffer
 nnoremap <C-q> :bd<CR>
+" toggle terminal
+map <leader>t :horizontal term<CR>i
 
 " VIMSCRIPT """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('+termguicolors')
