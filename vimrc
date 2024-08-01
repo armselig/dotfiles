@@ -2,20 +2,20 @@
 
 " PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
-    " the pope is the man
-    Plug 'tpope/vim-sensible'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
+" the pope is the man
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 
-    Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
+Plug 'tomasiser/vim-code-dark'
+Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
 
-    " vim-only plugins
-    if !has('nvim')
-        Plug 'vim-airline/vim-airline'          " nicer status line
-        Plug 'ryanoasis/vim-devicons'           " font icons in the interface
-    endif
-
+" vim-only plugins
+if !has('nvim')
+    Plug 'vim-airline/vim-airline'          " nicer status line
+    Plug 'ryanoasis/vim-devicons'           " font icons in the interface
+endif
 call plug#end()
 
 " OPTIONS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -43,8 +43,8 @@ set smartcase
 set smartindent
 set softtabstop=4
 set splitbelow splitright		            " new splits always below or to the right
+set t_Co=256
 set tabstop=4				                " default tab stop size
-set termguicolors
 set ttimeoutlen=0			                " time in ms to run commands
 set wildmenu				                " more advanced auto-complete menu
 
@@ -89,4 +89,11 @@ nnoremap <leader>fb :Vex<CR>
 nnoremap <leader>ff :find 
 " close buffer
 nnoremap <C-q> :bd<CR>
+
+" VIMSCRIPT """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if exists('+termguicolors')
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 
