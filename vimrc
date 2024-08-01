@@ -2,26 +2,24 @@
 
 " PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
-" the pope is the man
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
+    " the pope is the man
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
 
-Plug 'tomasiser/vim-code-dark'
-Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
 
-" vim-only plugins
-if !has('nvim')
-    Plug 'vim-airline/vim-airline'          " nicer status line
-    Plug 'ryanoasis/vim-devicons'           " font icons in the interface
-endif
+    " vim-only plugins
+    if !has('nvim')
+        Plug 'vim-airline/vim-airline'          " nicer status line
+        Plug 'ryanoasis/vim-devicons'           " font icons in the interface
+    endif
 call plug#end()
 
 " OPTIONS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent				                " activate auto indentation
-set autoread				                " auto-reload files
-set background=dark
 set cc=80				                    " set column border
 set clipboard=unnamed,unnamedplus		    " activate clipboard sharing
 set cursorline				                " highlight current line
@@ -32,11 +30,11 @@ set ignorecase				                " case insensitive matching
 set mouse=a				                    " activate mouse support
 set number				                    " line numbers
 set nobackup
-set nocompatible
 set noswapfile
 set nowrap
 set path+=**                                " add subfolders to path for better search
 set relativenumber			                " relative line numbers
+set scrolloff=999                           " try to keep cursor centered
 set shiftwidth=4                            " indent size, should match tabstop
 set showmatch
 set smartcase
@@ -45,8 +43,6 @@ set softtabstop=4
 set splitbelow splitright		            " new splits always below or to the right
 set t_Co=256
 set tabstop=4				                " default tab stop size
-set ttimeoutlen=0			                " time in ms to run commands
-set wildmenu				                " more advanced auto-complete menu
 
 colorscheme codedark
 filetype plugin indent on		            " auto-indent based on filetype
@@ -63,10 +59,12 @@ let g:netrw_winsize=25			            " window size is max 25%
 let g:netrw_liststyle=3                     " treeview 
 let g:netrw_browse_split=4                  " open file in previous window
 
-" vim-airline
-let g:airline#extensions#tabline#enabled = 1 " Enable list of buffers on top
-let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer index
-let g:airline_powerline_fonts = 1           " enable powerline/nerd fonts
+if !has('nvim')
+    " vim-airline
+    let g:airline#extensions#tabline#enabled = 1 " Enable list of buffers on top
+    let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer index
+    let g:airline_powerline_fonts = 1           " enable powerline/nerd fonts
+endif
 
 " KEY BINDINGS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader="\<Space>"

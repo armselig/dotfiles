@@ -1,15 +1,23 @@
 " import vim settings
-set runtimepath^=$HOME/.vim
-set runtimepath+=$HOME/vim/after
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
-source $HOME/.vimrc
+source ~/.vimrc
 
 " disable NetRW
 let loaded_netrw = 1 
 let loaded_netrwPlugin = 1 
 
 " PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin()
+call plug#begin('$HOME/.vim/plugged')
+    " the pope is the man
+    Plug 'tpope/vim-sensible'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
+
     Plug 'nvim-tree/nvim-web-devicons'      " icons for nvim-tree
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'windwp/nvim-ts-autotag'           " auto-close/-rename tags with Treesitter
@@ -24,8 +32,6 @@ call plug#end()
 
 " OPTIONS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set inccommand=split			            " show replacements in split screen
-
-"autocmd VimEnter * TSEnable highlight
 
 " KEY BINDINGS """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " files: find
