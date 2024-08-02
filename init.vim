@@ -18,6 +18,11 @@ call plug#begin('$HOME/.vim/plugged')
     Plug 'tomasiser/vim-code-dark'
     Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
 
+    " lit web components
+    Plug 'jonsmithers/vim-html-template-literals'
+    Plug 'pangloss/vim-javascript'
+    Plug 'ap/vim-css-color'
+
     Plug 'nvim-tree/nvim-web-devicons'      " icons for nvim-tree
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
     Plug 'windwp/nvim-ts-autotag'           " auto-close/-rename tags with Treesitter

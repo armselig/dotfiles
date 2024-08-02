@@ -11,6 +11,11 @@ call plug#begin()
     Plug 'tomasiser/vim-code-dark'
     Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
 
+    " lit web components
+    Plug 'jonsmithers/vim-html-template-literals'
+    Plug 'pangloss/vim-javascript'
+    Plug 'ap/vim-css-color'
+
     " vim-only plugins
     if !has('nvim')
         Plug 'vim-airline/vim-airline'          " nicer status line
