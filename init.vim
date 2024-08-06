@@ -17,6 +17,7 @@ call plug#begin('$HOME/.vim/plugged')
 
     Plug 'tomasiser/vim-code-dark'
     Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
+    Plug 'christoomey/vim-tmux-navigator'
 
     " lit web components
     Plug 'jonsmithers/vim-html-template-literals'
