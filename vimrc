@@ -1,7 +1,28 @@
 " This configuration is also sourced by nvim
+" Function to check if vim-plug is installed and install it if necessary
+function! CheckAndInstallVimPlug()
+  " Define the path to the vim-plug autoload directory
+  let plug_install_dir = expand('~/.vim/autoload/plug.vim')
+
+  " Check if the plug.vim file exists
+  if !filereadable(plug_install_dir)
+    " Print a message to inform the user
+    echo "vim-plug not found. Installing vim-plug..."
+
+    " Use system() to run the shell command to download vim-plug
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    " Print a message to inform the user that vim-plug has been installed
+    echo "vim-plug installed successfully."
+  endif
+endfunction
+
+" Call the function to check and install vim-plug
+call CheckAndInstallVimPlug()
 
 " PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin()
+call plug#begin('~/.vim/plugged')
     " the pope is the man
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-fugitive'
