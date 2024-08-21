@@ -1,28 +1,56 @@
 " import vim settings
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
-source ~/.vimrc
+
+" Source the .vimrc file
+if filereadable(expand('~/.vimrc'))
+  source ~/.vimrc
+  echo 'Sourced .vimrc'
+endif
 
 " disable NetRW
 let loaded_netrw = 1 
 let loaded_netrwPlugin = 1 
 
-" PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('$HOME/.vim/plugged')
-    " the pope is the man
-    Plug 'tpope/vim-sensible'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
+" Check if vim-plug is installed and install it if necessary
+function! CheckAndInstallVimPlug()
+  " Define the path to the vim-plug autoload directory for Neovim
+  let plug_install_dir = expand('~/.local/share/nvim/site/autoload/plug.vim')
 
-    Plug 'tomasiser/vim-code-dark'
-    Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
-    Plug 'christoomey/vim-tmux-navigator'
+  " Check if the plug.vim file exists
+  if !filereadable(plug_install_dir)
+    " Print a message to inform the user
+    echo "vim-plug not found. Installing vim-plug..."
+
+    " Use system() to run the shell command to download vim-plug
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    " Print a message to inform the user that vim-plug has been installed
+    echo "vim-plug installed successfully."
+  endif
+endfunction
+
+" Call the function to check and install vim-plug
+call CheckAndInstallVimPlug()
+
+" PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.local/share/nvim/plugged')
+" call plug#begin('~/.vim/plugged')
+    " the pope is the man
+    " Plug 'tpope/vim-sensible'
+    " Plug 'tpope/vim-fugitive'
+    " Plug 'tpope/vim-surround'
+    " Plug 'tpope/vim-commentary'
+
+    " Plug 'tomasiser/vim-code-dark'
+    " Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
+    " Plug 'christoomey/vim-tmux-navigator'
 
     " lit web components
-    Plug 'jonsmithers/vim-html-template-literals'
-    Plug 'pangloss/vim-javascript'
-    Plug 'ap/vim-css-color'
+    " Plug 'jonsmithers/vim-html-template-literals'
+    " Plug 'pangloss/vim-javascript'
+    " Plug 'ap/vim-css-color'
 
     Plug 'nvim-tree/nvim-web-devicons'      " icons for nvim-tree
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
@@ -35,6 +63,8 @@ call plug#begin('$HOME/.vim/plugged')
     Plug 'akinsho/bufferline.nvim', { 'tag': '*' } " buffers on top
 call plug#end()
 
+" Ensure all plugins are installed
+" autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 
 " OPTIONS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set inccommand=split			            " show replacements in split screen
