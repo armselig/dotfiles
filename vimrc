@@ -52,6 +52,7 @@ set clipboard=unnamed,unnamedplus		    " activate clipboard sharing
 set cursorline				                " highlight current line
 set completeopt=noinsert,menuone,noselect   " auto-complete behaves more IDE-like
 set expandtab				                " uses space for tabs
+set formatoptions-=ro                       " no auto-comment on <ENTER> and `o`
 set hidden				                    " hide unused buffers
 set ignorecase				                " case insensitive matching
 set mouse=a				                    " activate mouse support
