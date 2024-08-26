@@ -15,3 +15,8 @@ Host *
   AddKeysToAgent yes
   IdentityFile ~/.ssh/id_rsa_mbp
   IdentityFile ~/.ssh/id_rsa
+
+Host d5n
+  User armselig
+  HostName dev.n5n.io
+  IdentityFile ~/.ssh/id_rsa_asl-n5n
