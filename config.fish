@@ -1,4 +1,6 @@
-eval $(/usr/local/bin/brew shellenv)
+if type -q /usr/local/bin/brew
+    eval $(/usr/local/bin/brew shellenv)
+end
 
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
@@ -35,10 +37,19 @@ abbr cfgtmux "$EDITOR $fish_tmux_config"
 abbr srcfish "source $XDG_CONFIG_HOME/fish/config.fish"
 abbr gco "git checkout"
 
-alias ls="eza --icons"
-alias l="eza --icons --long --git --header --all"
-alias ll="eza --icons --long --git --header"
+if type -q ls
+    alias ls="eza --icons"
+    alias l="eza --icons --long --git --header --all"
+    alias ll="eza --icons --long --git --header"
+end
+
 alias cat="bat"
 
-eval "$(rbenv init -)"
-fzf --fish | source
+if type -q rbenv
+    eval "$(rbenv init -)"
+end
+
+if type -q fzf
+    fzf --fish | source
+end
+
