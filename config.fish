@@ -10,7 +10,7 @@ set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
 set -Ux BAT_THEME "Catppuccin Mocha"
-set -Ux EDITOR "nvim"
+set -Ux EDITOR "vim"
 #set -Ux LS_COLORS $(vivid generate catppuccin-mocha)
 set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
