@@ -37,7 +37,7 @@ abbr cfgtmux "$EDITOR $fish_tmux_config"
 abbr srcfish "source $XDG_CONFIG_HOME/fish/config.fish"
 abbr gco "git checkout"
 
-if type -q ls
+if type -q eza
     alias ls="eza --icons"
     alias l="eza --icons --long --git --header --all"
     alias ll="eza --icons --long --git --header"
