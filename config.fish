@@ -1,6 +1,6 @@
 eval $(/usr/local/bin/brew shellenv)
 
-set -q XDG_CONFIG_HOME || set -U "XDG_CONFIG_HOME $HOME/.config"
+set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
 set -U fish_add_path /usr/local/bin 
 set -U fish_greeting
