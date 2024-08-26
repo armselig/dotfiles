@@ -2,6 +2,10 @@ if type -q /usr/local/bin/brew
     eval $(/usr/local/bin/brew shellenv)
 end
 
+if not type -q fisher
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+end
+
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
 set -U fish_add_path /usr/local/bin 
