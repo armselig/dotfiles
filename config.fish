@@ -1,9 +1,10 @@
 eval $(/usr/local/bin/brew shellenv)
 
+set -q XDG_CONFIG_HOME || set -U "XDG_CONFIG_HOME $HOME/.config"
+
 set -U fish_add_path /usr/local/bin 
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
-
 
 set -Ux BAT_THEME "Catppuccin Mocha"
 set -Ux EDITOR "nvim"
@@ -11,19 +12,20 @@ set -Ux LS_COLORS $(vivid generate catppuccin-mocha)
 set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
 set -Ux VISUAL "code"
-set -Ux XDG_CONFIG_HOME "$HOME/.config"
+
+set -x NVM_DIR "~/.nvm"
 
 # budimanjojo/tmux.fish
-# set -Ux fish_tmux_autostart false
-# set -Ux fish_tmux_config $XDG_CONFIG_HOME/tmux/tmux.conf
-# set -Ux fish_tmux_default_session_name "asl"
+set -Ux fish_tmux_autostart true
+set -Ux fish_tmux_config $XDG_CONFIG_HOME/tmux/tmux.conf
+set -Ux fish_tmux_default_session_name "asl"
 
 # https://superuser.com/questions/874901/what-are-the-step-to-move-all-your-dotfiles-into-xdg-directories
 #set -Ux VIMDOTDIR "$XDG_CONFIG_HOME/vim"
 #set -Ux VIMINIT 'let $MYVIMRC="$VIMDOTDIR/vimrc" | source $MYVIMRC'
 
 # jorgebucaran/nvm.fish
-set -Ux nvm_default_version lts/iron
+set -Ux nvm_default_version "lts/iron"
 
 abbr tasl "tmux new -A -s asl"
 abbr tvsc "tmux new -A -s vsc"
