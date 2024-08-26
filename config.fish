@@ -2,6 +2,7 @@ if type -q /usr/local/bin/brew
     eval $(/usr/local/bin/brew shellenv)
 end
 
+set OSTYPE $(uname)
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
 set -U fish_add_path /usr/local/bin 
@@ -10,7 +11,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 
 set -Ux BAT_THEME "Catppuccin Mocha"
 set -Ux EDITOR "nvim"
-set -Ux LS_COLORS $(vivid generate catppuccin-mocha)
+#set -Ux LS_COLORS $(vivid generate catppuccin-mocha)
 set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
 set -Ux VISUAL "code"
@@ -18,7 +19,7 @@ set -Ux VISUAL "code"
 set -x NVM_DIR "~/.nvm"
 
 # budimanjojo/tmux.fish
-set -Ux fish_tmux_autostart true
+set -Ux fish_tmux_autostart false
 set -Ux fish_tmux_config $XDG_CONFIG_HOME/tmux/tmux.conf
 set -Ux fish_tmux_default_session_name "asl"
 
@@ -49,7 +50,7 @@ if type -q rbenv
     eval "$(rbenv init -)"
 end
 
-if type -q fzf
+if test "$OSTYPE" = "Darwin"; and type -q fzf
     fzf --fish | source
 end
 
