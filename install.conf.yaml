@@ -1,16 +1,28 @@
+- defaults:
+    link:
+      relink: true
+
 - clean: ['~']
 
 - link:
     ~/.bashrc: bashrc
     ~/.ssh/config:
-        path: ssh/config
-        create: true
-    ~/.vimrc: vimrc
+      path: ssh/config
+      create: true
+    ~/.vimrc: 
+      path: vimrc
+      create: true
     ~/.zshenv: zshenv
     ~/.config/alacritty/alacritty.toml: alacritty.toml
-    ~/.config/fish/config.fish: config.fish
-    ~/.config/nvim/init.vim: init.vim
-    ~/.config/tmux/tmux.conf: tmux.conf
+    ~/.config/fish/config.fish: 
+      path: config.fish
+      create: true
+    ~/.config/nvim/init.vim: 
+      path: init.vim
+      create: true
+    ~/.config/tmux/tmux.conf: 
+      path: tmux.conf
+      create: true
     ~/.config/zsh:
       glob: true
       path: zsh/*
