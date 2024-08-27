@@ -45,7 +45,13 @@ if type -q eza
     alias ll="eza --icons --long --git --header"
 end
 
-alias cat="bat"
+if type -q bat
+    alias cat="bat"
+end
+
+if type -q batcat
+    alias bat="batcat"
+end
 
 if type -q rbenv
     eval "$(rbenv init -)"
