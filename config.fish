@@ -5,7 +5,7 @@ end
 set OSTYPE $(uname)
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
-set -U fish_add_path /usr/local/bin 
+set -U fish_add_path /usr/local/bin ~/.local/bin
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
@@ -45,12 +45,12 @@ if type -q eza
     alias ll="eza --icons --long --git --header"
 end
 
-if type -q bat
-    alias cat="bat"
-end
-
 if type -q batcat
     alias bat="batcat"
+end
+
+if type -q bat
+    alias cat="bat"
 end
 
 if type -q rbenv
