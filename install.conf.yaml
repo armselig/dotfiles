@@ -6,9 +6,6 @@
 
 - link:
     ~/.bashrc: bashrc
-    ~/.ssh/config:
-      path: ssh/config
-      create: true
     ~/.vimrc: 
       path: vimrc
       create: true
