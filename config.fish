@@ -37,6 +37,7 @@ abbr cfgnvim "$EDITOR $XDG_CONFIG_HOME/nvim/init.vim"
 abbr cfgtmux "$EDITOR $fish_tmux_config"
 abbr srcfish "source $XDG_CONFIG_HOME/fish/config.fish"
 abbr gco "git checkout"
+abbr gcm "git commit -m \"\""
 abbr d5n "ssh d5n -t 'tmux new -As asl'"
 
 if type -q eza
