@@ -12,7 +12,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 set -Ux BAT_THEME "Catppuccin Mocha"
 set -Ux EDITOR "vim"
 #set -Ux LS_COLORS $(vivid generate catppuccin-mocha)
-set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
+# set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
 set -Ux VISUAL "code"
 
@@ -46,13 +46,13 @@ if type -q eza
     alias ll="eza --icons --long --git --header"
 end
 
-if type -q batcat
-    alias bat="batcat"
-end
+# if type -q batcat
+#     alias bat="batcat"
+# end
 
-if type -q bat
-    alias cat="bat"
-end
+# if type -q bat
+#     alias cat="bat"
+# end
 
 if type -q rbenv
     eval "$(rbenv init -)"
