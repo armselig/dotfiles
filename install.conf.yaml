@@ -14,9 +14,12 @@
     ~/.config/fish/config.fish: 
       path: config.fish
       create: true
-    ~/.config/nvim/init.vim: 
-      path: init.vim
-      create: true
+    #~/.config/nvim/init.vim: 
+      #path: init.vim
+      #create: true
+    ~/.config/nvim:
+      glob: true
+      path: nvim/*
     ~/.config/tmux/tmux.conf: 
       path: tmux.conf
       create: true
