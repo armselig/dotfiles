@@ -20,6 +20,7 @@
     ~/.config/nvim:
       glob: true
       path: nvim/*
+      create: true
     ~/.config/tmux/tmux.conf: 
       path: tmux.conf
       create: true

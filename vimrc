@@ -1,28 +1,22 @@
 " This configuration is also sourced by nvim
+
 " Function to check if vim-plug is installed and install it if necessary
+" https://junegunn.github.io/vim-plug/tips/automatic-installation/
 function! CheckAndInstallVimPlug()
-  " Define the path to the vim-plug autoload directory
-  let plug_install_dir = expand('~/.vim/autoload/plug.vim')
-
-  " Check if the plug.vim file exists
-  if !filereadable(plug_install_dir)
-    " Print a message to inform the user
-    echo "vim-plug not found. Installing vim-plug..."
-
-    " Use system() to run the shell command to download vim-plug
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    " Print a message to inform the user that vim-plug has been installed
-    echo "vim-plug installed successfully."
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+  if empty(glob(data_dir . '/autoload/plug.vim'))
+    echo "====================="
+    echo " INSTALLING VIM-PLUG "
+    echo "====================="
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
   endif
 endfunction
 
-" Call the function to check and install vim-plug
 call CheckAndInstallVimPlug()
 
 " PLUGINS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call plug#begin('~/.vim/plugged')
+call plug#begin()
     " the pope is the man
     Plug 'tpope/vim-sensible'
     Plug 'tpope/vim-fugitive'
@@ -37,7 +31,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'jonsmithers/vim-html-template-literals'
     Plug 'pangloss/vim-javascript'
     Plug 'ap/vim-css-color'
-
     " vim-only plugins
     if !has('nvim')
         Plug 'vim-airline/vim-airline'          " nicer status line

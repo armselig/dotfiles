@@ -1,20 +1,3 @@
--- make sure vim-plug is installed
-local function check_and_install_vim_plug()
-  -- ~/.local/nvim
-  local plug_install_path = vim.fn.stdpath('data') .. '/site/autoload/plug.vim'
-  if vim.fn.filereadable(plug_install_path) == 0 then
-    print("vim-plug nicht gefunden. Installiere vim-plug...")
-    vim.fn.system({
-      'sh', '-c',
-      'curl -fLo ' .. plug_install_path .. ' --create-dirs ' ..
-      'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    })
-    print("vim-plug erfolgreich installiert.")
-  end
-end
-
-check_and_install_vim_plug()
-
 -- load vim-plug plugins
 vim.cmd [[
     call plug#begin(stdpath('data') . '/plugged')
