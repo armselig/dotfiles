@@ -1,8 +1,8 @@
 if type -q /usr/local/bin/brew
-    eval $(/usr/local/bin/brew shellenv)
+    eval '(/usr/local/bin/brew shellenv)'
 end
 
-set OSTYPE $(uname)
+set OSTYPE '(uname)'
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
 set -U fish_add_path /usr/local/bin ~/.local/bin
@@ -11,7 +11,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 
 set -Ux BAT_THEME "Catppuccin Mocha"
 set -Ux EDITOR "vim"
-#set -Ux LS_COLORS $(vivid generate catppuccin-mocha)
+#set -Ux LS_COLORS '(vivid generate catppuccin-mocha)'
 # set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
 set -Ux VISUAL "code"
@@ -55,7 +55,7 @@ end
 # end
 
 if type -q rbenv
-    eval "$(rbenv init -)"
+    eval "'(rbenv init -)'"
 end
 
 if test "$OSTYPE" = "Darwin"; and type -q fzf
