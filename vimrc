@@ -97,7 +97,9 @@ nnoremap <A-Up> ddkP
 " move line down
 nnoremap <A-Down> ddp
 " save file
-nnoremap <C-s> :w<CR>
+nnoremap <C-s> :update<CR>
+inoremap <C-s> <C-O>:update<CR>
+vnoremap <C-s> <C-c>:update<CR>
 " half page up and center
 nnoremap <C-u> <C-u>zz
 " half page down and center
