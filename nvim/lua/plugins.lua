@@ -28,6 +28,7 @@ vim.cmd [[
         Plug 'nvim-lualine/lualine.nvim'        " vim-airline in lua
         Plug 'akinsho/bufferline.nvim', { 'tag': '*' } " buffers on top
         Plug 'airblade/vim-gitgutter'
+        Plug 'stevearc/conform.nvim'            " formatting
 
         " lsp
         Plug 'neovim/nvim-lspconfig'
@@ -52,6 +53,29 @@ require('bufferline').setup({
 require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
+    }
+})
+
+require("conform").setup({
+    formatters_by_ft = {
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        svelte = { "prettier" },
+        css = { "prettier" },
+        html = { "prettier" },
+        json = { "prettier" },
+        yaml = { "prettier" },
+        markdown = { "prettier" },
+        graphql = { "prettier" },
+        lua = { "stylua" },
+        python = { "isort", "black" },
+    },
+    format_on_save = {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
     }
 })
 
