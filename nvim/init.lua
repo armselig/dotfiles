@@ -1,4 +1,4 @@
 require("options")
 require("keys")
-require("vim-plug")
+require("plugins")
 

@@ -27,10 +27,20 @@ vim.cmd [[
         Plug 'nvim-tree/nvim-tree.lua'          " file browser. NOT nvim-neo-tree!
         Plug 'nvim-lualine/lualine.nvim'        " vim-airline in lua
         Plug 'akinsho/bufferline.nvim', { 'tag': '*' } " buffers on top
+        Plug 'airblade/vim-gitgutter'
+
+        " lsp
+        Plug 'neovim/nvim-lspconfig'
+        Plug 'hrsh7th/nvim-cmp'
+        Plug 'hrsh7th/cmp-nvim-lsp'
+        Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v4.x'}
+        Plug 'williamboman/mason.nvim'
+        Plug 'williamboman/mason-lspconfig.nvim'
     call plug#end()
 ]]
 
 -- setup plugins
+require('plugins-lsp')
 require('nvim-ts-autotag').setup()
 require('nvim-tree').setup()
 require('lualine').setup()
