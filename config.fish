@@ -1,6 +1,6 @@
-if type -q /usr/local/bin/brew
-    eval '(/usr/local/bin/brew shellenv)'
-end
+#if type -q /usr/local/bin/brew
+#    eval (/usr/local/bin/brew shellenv)
+#end
 
 set OSTYPE '(uname)'
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
@@ -54,9 +54,9 @@ end
 #     alias cat="bat"
 # end
 
-if type -q rbenv
-    eval "'(rbenv init -)'"
-end
+# if type -q rbenv
+#     eval "'(rbenv init -)'"
+# end
 
 if test "$OSTYPE" = "Darwin"; and type -q fzf
     fzf --fish | source
