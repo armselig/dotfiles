@@ -27,6 +27,7 @@ call plug#begin()
     Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'airblade/vim-gitgutter'
+    Plug 'stevearc/conform.nvim'
 
     " lit web components
     Plug 'jonsmithers/vim-html-template-literals'
