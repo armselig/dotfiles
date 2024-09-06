@@ -1,9 +1,10 @@
-#if type -q /usr/local/bin/brew
-#    eval (/usr/local/bin/brew shellenv)
-#end
+if type -q /usr/local/bin/brew
+    eval "$(/usr/local/bin/brew shellenv)"
+end
 
-set OSTYPE '(uname)'
+set OSTYPE "$(uname)"
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
+set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
 
 set -U fish_add_path /usr/local/bin ~/.local/bin
 set -U fish_greeting
@@ -28,17 +29,23 @@ set -Ux fish_tmux_default_session_name "asl"
 #set -Ux VIMINIT 'let $MYVIMRC="$VIMDOTDIR/vimrc" | source $MYVIMRC'
 
 # jorgebucaran/nvm.fish
-set -Ux nvm_default_version "lts/iron"
+#set -Ux nvm_default_version "lts/iron"
+#set nvm_current_version # reset
 
 abbr tasl "tmux new -A -s asl"
-abbr tvsc "tmux new -A -s vsc"
-abbr cfgfish "$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
-abbr cfgnvim "$EDITOR $XDG_CONFIG_HOME/nvim/init.vim"
-abbr cfgtmux "$EDITOR $fish_tmux_config"
-abbr srcfish "source $XDG_CONFIG_HOME/fish/config.fish"
-abbr gco "git checkout"
-abbr gcm "git commit -m \"\""
+abbr cfish "$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
+abbr cnvim "$EDITOR $XDG_CONFIG_HOME/nvim/init.lua"
+abbr cvim "$EDITOR $HOME/.vimrc"
+abbr ctmux "$EDITOR $fish_tmux_config"
+abbr sfish "source $XDG_CONFIG_HOME/fish/config.fish"
 abbr d5n "ssh d5n -t 'tmux new -As asl'"
+abbr gco "git checkout"
+abbr gcm --set-cursor "git commit -m \"%\"" 
+abbr gpl "git pull"
+abbr gps "git push"
+abbr gf "git fetch"
+abbr ga "git add"
+abbr gs "git status"
 
 if type -q eza
     alias ls="eza --icons"
@@ -54,11 +61,17 @@ end
 #     alias cat="bat"
 # end
 
-# if type -q rbenv
-#     eval "'(rbenv init -)'"
-# end
+if type -q rbenv
+    eval "$(rbenv init -)"
+end
 
 if test "$OSTYPE" = "Darwin"; and type -q fzf
     fzf --fish | source
 end
+
+# https://dev.to/fabientownsend/setup-node-and-nvm-with-fish-shell-5f3
+function nvm
+    bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
+end
+nvm use default --silent
 
