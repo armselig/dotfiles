@@ -62,14 +62,18 @@ if type -q rbenv
     eval "$(rbenv init -)"
 end
 
-if test "$OSTYPE" = "Darwin"; and type -q fzf
+if test "$OSTYPE" = "Darwin"; and test -x fzf
     fzf --fish | source
 end
 
 # https://dev.to/fabientownsend/setup-node-and-nvm-with-fish-shell-5f3
-function nvm
-    bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
-end
 set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
+function nvm
+    if test "$OSTYPE" = "Darwin"; and test -x brew
+        bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
+    else
+        bass source $NVM_DIR/nvm.sh --on-use ';' nvm $argv
+    end
+end
 nvm use default --silent
 
