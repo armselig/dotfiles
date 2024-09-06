@@ -52,6 +52,8 @@ require('bufferline').setup({
         numbers = true
     }
 })
+
+-- TODO: version check
 require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
@@ -60,19 +62,16 @@ require('nvim-treesitter.configs').setup({
 
 require("conform").setup({
     formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
+        javascript = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
+        javascriptreact = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
+        typescript = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
+        typescriptreact = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
+        css = { "prettierd", "prettier", stop_after_first = true },
+        html = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { "prettierd", "prettier", stop_after_first = true },
         lua = { "stylua" },
-        python = { "isort", "black" },
     },
     format_on_save = {
         lsp_fallback = true,
