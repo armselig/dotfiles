@@ -19,7 +19,9 @@ vim.cmd [[
 
         " misc
         Plug 'nvim-tree/nvim-web-devicons'      " icons for nvim-tree
-        Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
+        if has('nvim-0.9')
+            Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting
+        endif
         Plug 'windwp/nvim-ts-autotag'           " auto-close/-rename tags with Treesitter
         Plug 'nvim-lua/plenary.nvim'            " lua libs. required by many plugins
         Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
