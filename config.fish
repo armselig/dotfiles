@@ -4,7 +4,6 @@ end
 
 set OSTYPE "$(uname)"
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
-set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
 
 set -U fish_add_path /usr/local/bin ~/.local/bin
 set -U fish_greeting
@@ -16,8 +15,6 @@ set -Ux EDITOR "vim"
 # set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
 set -Ux VISUAL "code"
-
-set -x NVM_DIR "~/.nvm"
 
 # budimanjojo/tmux.fish
 set -Ux fish_tmux_autostart false
@@ -73,5 +70,6 @@ end
 function nvm
     bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
 end
+set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
 nvm use default --silent
 
