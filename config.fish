@@ -81,12 +81,15 @@ function nvm
         bass source $NVM_DIR/nvm.sh --on-use ';' nvm $argv
     end
 end
-nvm use default 
 
+if test -e (pwd)/.nvmrc
+    nvm use default 
+end
 
 # pnpm
-set -gx PNPM_HOME "/Users/henneuma/Library/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+if test "$OSTYPE" = "Darwin"
+    set -gx PNPM_HOME "$HOME/Library/pnpm"
+    if not string match -q -- $PNPM_HOME $PATH
+        set -gx PATH "$PNPM_HOME" $PATH
+    end
 end
-# pnpm end
