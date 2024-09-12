@@ -4,23 +4,20 @@ end
 
 set OSTYPE "$(uname)"
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
+set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
 
 set -U fish_add_path /usr/local/bin ~/.local/bin
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
 
 set -Ux BAT_THEME "Catppuccin Mocha"
-# set -Ux EDITOR "vim"
+set -Ux EDITOR "vim"
 #set -Ux LS_COLORS '(vivid generate catppuccin-mocha)'
 # set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -Ux TERM "alacritty"
+set -Ux TERM alacritty
 set -Ux VISUAL "code"
 
-if test -x "nvim" 
-    set -Ux EDITOR "nvim"
-else
-    set -Ux EDITOR "vim"
-end
+set -x NVM_DIR "~/.nvm"
 
 # budimanjojo/tmux.fish
 set -Ux fish_tmux_autostart false
@@ -68,18 +65,13 @@ if type -q rbenv
     eval "$(rbenv init -)"
 end
 
-if test "$OSTYPE" = "Darwin"; and test -x fzf
+if test "$OSTYPE" = "Darwin"; and type -q fzf
     fzf --fish | source
 end
 
 # https://dev.to/fabientownsend/setup-node-and-nvm-with-fish-shell-5f3
-set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
 function nvm
-    if test "$OSTYPE" = "Darwin"; and test -x brew
-        bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
-    else
-        bass source $NVM_DIR/nvm.sh --on-use ';' nvm $argv
-    end
+    bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
 end
-nvm use default 
+nvm use default --silent
 
