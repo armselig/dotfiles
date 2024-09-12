@@ -43,7 +43,6 @@ vim.cmd [[
 ]]
 
 -- setup plugins
-require('plugins-lsp')
 require('nvim-ts-autotag').setup()
 require('nvim-tree').setup()
 require('lualine').setup()
@@ -60,12 +59,14 @@ require('nvim-treesitter.configs').setup({
     }
 })
 
+-- conform formatter
 require("conform").setup({
     formatters_by_ft = {
-        javascript = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
-        javascriptreact = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
-        typescript = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
-        typescriptreact = { "eslintd", "eslint", "prettierd", "prettier", stop_after_first = true },
+        -- empty for ts/js so that formatting is done by lsp
+        javascript = {},
+        javascriptreact = {},
+        typescript = {},
+        typescriptreact = {},
         css = { "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
         json = { "prettierd", "prettier", stop_after_first = true },
