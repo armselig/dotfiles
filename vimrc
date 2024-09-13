@@ -23,7 +23,6 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
 
-    Plug 'tomasiser/vim-code-dark'
     Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
     Plug 'christoomey/vim-tmux-navigator'
     Plug 'airblade/vim-gitgutter'
@@ -37,6 +36,7 @@ call plug#begin()
     if !has('nvim')
         Plug 'vim-airline/vim-airline'          " nicer status line
         Plug 'ryanoasis/vim-devicons'           " font icons in the interface
+        Plug 'tomasiser/vim-code-dark'
     endif
 call plug#end()
 
@@ -67,7 +67,6 @@ set splitbelow splitright		            " new splits always below or to the right
 set t_Co=256
 set tabstop=4				                " default tab stop size
 
-colorscheme codedark
 filetype plugin indent on		            " auto-indent based on filetype
 syntax on				                    " syntax highlighting
 
@@ -83,6 +82,7 @@ let g:netrw_liststyle=3                     " treeview
 let g:netrw_browse_split=4                  " open file in previous window
 
 if !has('nvim')
+    colorscheme codedark
     " vim-airline
     let g:airline#extensions#tabline#enabled = 1 " Enable list of buffers on top
     let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer index
