@@ -83,7 +83,9 @@ function nvm
 end
 
 if test -e (pwd)/.nvmrc
-    nvm use default 
+    nvm use
+else
+    nvm use default
 end
 
 # pnpm
