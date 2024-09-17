@@ -81,6 +81,8 @@ let g:netrw_winsize=25			            " window size is max 25%
 let g:netrw_liststyle=3                     " treeview 
 let g:netrw_browse_split=4                  " open file in previous window
 
+let g:gitgutter_map_keys=0                  " i am using those bindings myself
+
 if !has('nvim')
     colorscheme codedark
     " vim-airline

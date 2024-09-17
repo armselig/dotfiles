@@ -1,4 +1,4 @@
--- load vim-plug plugins
+--- VIM-PLUG
 vim.cmd [[
     call plug#begin(stdpath('data') . '/plugged')
         " the pope is the man
@@ -26,6 +26,7 @@ vim.cmd [[
         Plug 'nvim-lua/plenary.nvim'            " lua libs. required by many plugins
         Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
         Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' }
+        Plug 'nvim-telescope/telescope-frecency.nvim'
         Plug 'nvim-tree/nvim-tree.lua'          " file browser. NOT nvim-neo-tree!
         Plug 'nvim-lualine/lualine.nvim'        " vim-airline in lua
         Plug 'akinsho/bufferline.nvim', { 'tag': '*' } " buffers on top
@@ -42,9 +43,7 @@ vim.cmd [[
     call plug#end()
 ]]
 
--- setup plugins
-
--- Mofiqul/vscode.nvim
+--- Mofiqul/vscode.nvim
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
     -- Alternatively set style in setup
@@ -85,12 +84,12 @@ require('lualine').setup({
     },
 })
 
--- akinsho/bufferline
+--- akinsho/bufferline
 require("bufferline").setup({
     options = {
-        buffer_close_icon = "",
+        buffer_close_icon = "",
         close_command = "bdelete %d",
-        close_icon = "",
+        close_icon = "󰅙",
         indicator = {
             style = "icon",
             icon = " ",
@@ -103,59 +102,20 @@ require("bufferline").setup({
         right_trunc_marker = "",
         show_close_icon = false,
         show_tab_indicators = true,
-    },
-    highlights = {
-        fill = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLineNC" },
-        },
-        background = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
-        },
-        buffer_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
-        buffer_selected = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
-        separator = {
-            fg = { attribute = "bg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
-        },
-        separator_selected = {
-            fg = { attribute = "fg", highlight = "Special" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
-        separator_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLineNC" },
-        },
-        close_button = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "StatusLine" },
-        },
-        close_button_selected = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
-        close_button_visible = {
-            fg = { attribute = "fg", highlight = "Normal" },
-            bg = { attribute = "bg", highlight = "Normal" },
-        },
+        diagnostics = "nvim_lsp"
     },
 })
 
+--- TREESITTER
 -- TODO: version check
 require('nvim-treesitter.configs').setup({
     highlight = {
         enable = true,
+        additional_vim_regex_highlighting = true, -- should fix indentation of multiline comments
     }
 })
 
--- conform formatter
+--- CONFORM
 require("conform").setup({
     formatters_by_ft = {
         -- empty for ts/js so that formatting is done by lsp
@@ -176,6 +136,9 @@ require("conform").setup({
         timeout_ms = 1000,
     }
 })
+
+--- TELESCOPE & PLUGINS
+require("telescope").load_extension "frecency"
 
 -- install plugins when nvim starts
 -- vim.cmd [[
