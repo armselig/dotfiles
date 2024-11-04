@@ -6,6 +6,7 @@
 
 - link:
     ~/.bashrc: bashrc
+    ~/.bash_aliases: bash_aliases
     ~/.vimrc: 
       path: vimrc
       create: true
