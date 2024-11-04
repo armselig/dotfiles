@@ -21,4 +21,6 @@ alias sbash='source $HOME/.bashrc'
 alias cvim='$EDITOR $HOME/.vimrc'
 alias cnvim='$EDITOR $XDG_CONFIG_HOME/nvim/init.lua'
 alias ctmux='$EDITOR $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias csway='$EDITOR $XDG_CONFIG_HOME/sway/config'
+alias cala='$EDITOR $XDG_CONFIG_HOME/alacritty/alacritty.toml'
 
