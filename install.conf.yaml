@@ -29,3 +29,5 @@
       glob: true
       path: zsh/*
       prefix: '.'
+    ~/.config/sway/config: sway/config
+    ~/.config/waybar/config: sway/waybar
