@@ -241,6 +241,8 @@ bar {
 }
 
 # default_border none
+default_border pixel 1
+gaps inner 8
 
 bindsym $mod+Shift+n exec nautilus
 bindsym $mod+Shift+b exec firefox-esr

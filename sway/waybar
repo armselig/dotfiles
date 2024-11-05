@@ -16,19 +16,19 @@
         "sway/window"
     ],
     "modules-right": [
-        "mpd",
-        "idle_inhibitor",
+        /* "mpd", */
+        /* "idle_inhibitor", */
         "pulseaudio",
-        "network",
-        "power-profiles-daemon",
+        /* "power-profiles-daemon", */
         "cpu",
         "memory",
-        "temperature",
+        /* "temperature", */
         "backlight",
-        "keyboard-state",
-        "sway/language",
+        /* "keyboard-state", */
+        /* "sway/language", */
         "battery",
         "battery#bat2",
+        "network",
         "clock",
         "tray",
         "custom/power"
@@ -162,9 +162,10 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        /* "format-wifi": "{essid} ({signalStrength}%) ", */
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format": "{essid} ({signalStrength}%) - {ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
