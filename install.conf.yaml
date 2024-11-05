@@ -12,9 +12,7 @@
       create: true
     ~/.zshenv: zshenv
     ~/.config/alacritty/alacritty.toml: alacritty.toml
-    ~/.config/fish/config.fish: 
-      path: config.fish
-      create: true
+    ~/.config/fish/config.fish: fish/config.fish
     #~/.config/nvim/init.vim: 
       #path: init.vim
       #create: true
@@ -31,3 +29,4 @@
       prefix: '.'
     ~/.config/sway/config: sway/config
     ~/.config/waybar/config: sway/waybar
+    ~/.config/sway/catppuccin-mocha.theme: sway/catppuccin-mocha.theme

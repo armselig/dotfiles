@@ -21,6 +21,8 @@ set $term alacritty
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
+include ./catppuccin-mocha.theme
+
 
 ### Output configuration
 #
@@ -35,6 +37,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output eDP-1 {
     mode 2736x1824
     position 0,0
+    bg ~/Bilder/darth-smoking.jpg fill
 }
 
 ### Idle configuration
@@ -128,6 +131,10 @@ input "1118:2024:Microsoft_Surface_Type_Cover_Touchpad" {
 #
 # Workspaces:
 #
+    # workspace 1
+    # assign [app_id="firefox-esr"] workspace 1
+    # exec firefox-esr
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -218,20 +225,24 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top
+bar {
+    swaybar_command waybar
+    position top
 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
+    colors {
+        statusline $text
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+    }
+}
 
-bar swaybar_command waybar
+# default_border none
+
+bindsym $mod+Shift+n exec nautilus
+bindsym $mod+Shift+b exec firefox-esr
 
 include /etc/sway/config.d/*

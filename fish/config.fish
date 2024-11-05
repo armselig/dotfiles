@@ -32,6 +32,13 @@ set -Ux fish_tmux_default_session_name "asl"
 #set -Ux nvm_default_version "lts/iron"
 #set nvm_current_version # reset
 
+if type -q lsd
+    alias ls="lsd"
+end
+
+abbr l "ls"
+abbr ll "ls -l"
+abbr lal "ls -al"
 abbr tasl "tmux new -A -s asl"
 abbr cfish "$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 abbr cnvim "$EDITOR $XDG_CONFIG_HOME/nvim/init.lua"
@@ -47,12 +54,6 @@ abbr gf "git fetch"
 abbr ga "git add"
 abbr gs "git status"
 
-if type -q eza
-    alias ls="eza --icons"
-    alias l="eza --icons --long --git --header --all"
-    alias ll="eza --icons --long --git --header"
-end
-
 # if type -q batcat
 #     alias bat="batcat"
 # end
@@ -65,13 +66,19 @@ if type -q rbenv
     eval "$(rbenv init -)"
 end
 
-if test "$OSTYPE" = "Darwin"; and type -q fzf
+if type -q fzf
     fzf --fish | source
+end
+
+if type -q /home/linuxbrew/.linuxbrew/bin/brew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 end
 
 # https://dev.to/fabientownsend/setup-node-and-nvm-with-fish-shell-5f3
 function nvm
-    bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
+    if type -q (brew --prefix nvm)/nvm.sh
+        bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
+    end
 end
 nvm use default --silent
 
