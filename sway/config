@@ -249,6 +249,7 @@ gaps inner 8
 bindsym $mod+Shift+n exec nautilus
 bindsym $mod+Shift+b exec firefox-esr
 bindsym $mod+Space exec albert toggle
+bindsym Alt+l exec swaylock 
 
 exec --no-startup-id albert
 

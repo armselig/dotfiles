@@ -33,3 +33,4 @@
     ~/.config/waybar: 
       glob: true
       path: waybar/*
+    ~/.config/swaylock/config: swaylock
