@@ -23,15 +23,16 @@
         "cpu",
         "memory",
         /* "temperature", */
-        "backlight",
+        /* "backlight/slider", */
         /* "keyboard-state", */
         /* "sway/language", */
         "battery",
         "battery#bat2",
         "network",
-        "clock",
         "tray",
-        "custom/power"
+        "custom/power",
+        "power",
+        "clock",
     ],
     // Modules configuration
     // "sway/workspaces": {
@@ -50,6 +51,10 @@
     //         "default": ""
     //     }
     // },
+    "sway/window": {
+        "max-length": 10,
+        "format": "{app_id}"
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -109,7 +114,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%d.%m. %R}",
     },
     "cpu": {
         "format": "{usage}% ",
@@ -212,5 +217,10 @@
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}
-    }
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+    },
 }

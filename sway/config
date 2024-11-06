@@ -180,7 +180,7 @@ input "1118:2024:Microsoft_Surface_Type_Cover_Touchpad" {
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -231,20 +231,25 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
 
-    colors {
-        statusline $text
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    # colors {
+    #     statusline $text
+    #     background #323232
+    #     inactive_workspace #32323200 #32323200 #5c5c5c
+    # }
 }
 
 # default_border none
 default_border pixel 1
+smart_borders on
 gaps inner 8
+# smart_gaps on
 
 bindsym $mod+Shift+n exec nautilus
 bindsym $mod+Shift+b exec firefox-esr
+bindsym $mod+Space exec albert toggle
+
+exec --no-startup-id albert
 
 include /etc/sway/config.d/*

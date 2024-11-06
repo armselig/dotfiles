@@ -27,6 +27,9 @@
       glob: true
       path: zsh/*
       prefix: '.'
-    ~/.config/sway/config: sway/config
-    ~/.config/waybar/config: sway/waybar
-    ~/.config/sway/catppuccin-mocha.theme: sway/catppuccin-mocha.theme
+    ~/.config/sway: 
+      glob: true
+      path: sway/*
+    ~/.config/waybar: 
+      glob: true
+      path: waybar/*

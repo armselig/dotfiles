@@ -1,0 +1,45 @@
+@import "mocha.css";
+
+* {
+    background: transparent;
+    font-family: monospace;
+    font-size: 0.8rem;
+    min-height: 0;
+    box-shadow: none;
+}
+
+#waybar {
+    background: @base;
+    color: @text;
+}
+
+#workspaces button {
+    border: 1px solid @surface0;
+    color: @lavender;
+    margin-right: 0.5rem;
+}
+
+#workspaces button:hover {
+    color: @sapphire;
+    background: @surface0;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    background: @surface2;
+}
+
+widget > * {
+    color: @subtext0;
+    margin: 0 0.5rem;
+}
+
+tooltip {
+    background: @base;
+}
+
+tooltip label {
+    color: @subtext0;
+    transition: none;
+    text-shadow: none;
+}
