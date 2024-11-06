@@ -2,5 +2,21 @@ ignore-empty-password
 show-failed-attempts
 show-keyboard-layout
 indicator-idle-visible
+
+image=~/img/catp-triangle.png
+
+font=monospace
+font-size=20
+
 color=313244
 
+inside-color=313244
+
+layout-bg-color=313244
+layout-text-color=cdd6f4
+
+line-color=6c7086
+line-caps-lock-color=eba0ac
+line-wrong-color=f38ba8
+
+ring-color=313244

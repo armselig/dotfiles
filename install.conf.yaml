@@ -34,3 +34,7 @@
       glob: true
       path: waybar/*
     ~/.config/swaylock/config: swaylock
+    ~/img:
+      glob: true
+      path: assets/img/*
+      create: true
