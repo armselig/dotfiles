@@ -10,7 +10,6 @@
     ~/.vimrc: 
       path: vimrc
       create: true
-    ~/.zshenv: zshenv
     ~/.config/alacritty/alacritty.toml: alacritty.toml
     ~/.config/fish/config.fish: fish/config.fish
     #~/.config/nvim/init.vim: 
