@@ -34,6 +34,9 @@
       glob: true
       path: waybar/*
     ~/.config/swaylock/config: swaylock
+    ~/.config/wlogout:
+      glob: true
+      path: wlogout/*
     ~/img:
       glob: true
       path: assets/img/*
