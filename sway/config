@@ -12,9 +12,6 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 include /etc/sway/config-vars.d/*
 include ./catppuccin-mocha.theme
 
-### Output configuration
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-
 output eDP-1 {
     mode 2736x1824
     position 0,0

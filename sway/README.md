@@ -1,5 +1,9 @@
 # SwayWM config
 
 ```shell
-sudo apt install sway waybar swaylock wlogout
+# Core:
+$ sudo apt install sway waybar swaylock wlogout
+
+# Tools:
+$ sudo apt install network-manager network-manager-gnome 
 ```
