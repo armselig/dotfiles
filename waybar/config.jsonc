@@ -19,6 +19,7 @@
         "memory",
         "battery",
         // "bluetooth",
+        "backlight",
         "tray",
         "custom/power",
         "clock"
@@ -106,5 +107,9 @@
         "format" : "⏻ ",
 		"tooltip": false,
         "on-click": "exec wlogout"
+    },
+    "backlight": {
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
     }
 }
