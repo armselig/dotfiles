@@ -18,7 +18,7 @@
         "cpu",
         "memory",
         "battery",
-        "bluetooth",
+        // "bluetooth",
         "tray",
         "custom/power",
         "clock"

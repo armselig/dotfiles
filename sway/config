@@ -37,7 +37,7 @@ output eDP-1 {
 input "1118:2024:Microsoft_Surface_Type_Cover_Keyboard" {
     xkb_layout "de"
     xkb_variant "nodeadkeys" 
-    xkb_options "grp:alt_shift_toggle,caps:swapescape"
+    xkb_options "grp:alt_shift_toggle,caps:escape"
 } 
 
 input "1118:2024:Microsoft_Surface_Type_Cover_Touchpad" {
@@ -208,5 +208,6 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 exec albert
 exec nm-applet --indicator
+exec blueman-applet
 
 include /etc/sway/config.d/*
