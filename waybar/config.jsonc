@@ -54,6 +54,8 @@
     },
     "backlight": {
         // "device": "acpi_video1",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
         "format": "{percent}% {icon}",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
@@ -107,9 +109,5 @@
         "format" : "⏻ ",
 		"tooltip": false,
         "on-click": "exec wlogout"
-    },
-    "backlight": {
-        "on-scroll-up": "brightnessctl set +5%",
-        "on-scroll-down": "brightnessctl set 5%-"
     }
 }
