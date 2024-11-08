@@ -14,7 +14,7 @@
         "sway/window"
     ],
     "modules-right": [
-        "wireplumber",
+        "pulseaudio",
         "cpu",
         "memory",
         "battery",
@@ -73,25 +73,25 @@
         "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
-    // "pulseaudio": {
-    //     "scroll-step": 1, // %, can be a float
-    //     "format": "{volume}% {icon} {format_source}",
-    //     "format-bluetooth": "{volume}% {icon} {format_source}",
-    //     "format-bluetooth-muted": " {icon} {format_source}",
-    //     "format-muted": " {format_source}",
-    //     "format-source": "{volume}% ",
-    //     "format-source-muted": "",
-    //     "format-icons": {
-    //         "headphone": "",
-    //         "hands-free": "",
-    //         "headset": "",
-    //         "phone": "",
-    //         "portable": "",
-    //         "car": "",
-    //         "default": ["", "", ""]
-    //     },
-    //     "on-click": "pavucontrol"
-    // },
+    "pulseaudio": {
+        "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
     "custom/media": {
         "format": "{icon} {text}",
         "return-type": "json",
@@ -108,24 +108,24 @@
         "format" : "⏻ ",
 		"tooltip": false,
         "on-click": "exec wlogout"
-    },
-    "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": "",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "max-volume": 150,
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        }
     }
+    // "wireplumber": {
+    //     "format": "{volume}% {icon}",
+    //     "format-muted": "",
+    //     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    //     "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+    //     "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+    //     "format-source": "{volume}% ",
+    //     "format-source-muted": "",
+    //     "max-volume": 150,
+    //     "format-icons": {
+    //         "headphone": "",
+    //         "hands-free": "",
+    //         "headset": "",
+    //         "phone": "",
+    //         "portable": "",
+    //         "car": "",
+    //         "default": ["", "", ""]
+    //     }
+    // }
 }
