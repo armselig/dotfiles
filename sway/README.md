@@ -7,3 +7,5 @@ $ sudo apt install sway waybar swaylock wlogout swayidle
 # Tools:
 $ sudo apt install network-manager network-manager-gnome blueman
 ```
+
+- Install [Ulauncher](https://ulauncher.io/#Download)

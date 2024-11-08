@@ -8,6 +8,10 @@
     box-shadow: none;
 }
 
+window {
+    background: @mantle;
+}
+
 #waybar {
     background: @base;
     color: @text;
