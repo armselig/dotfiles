@@ -30,6 +30,7 @@ call plug#begin()
 
     " lit web components
     Plug 'jonsmithers/vim-html-template-literals'
+    Plug 'catppuccin/vim', { 'as': 'catppuccin' }
     Plug 'pangloss/vim-javascript'
     Plug 'ap/vim-css-color'
     " vim-only plugins
@@ -84,7 +85,8 @@ let g:netrw_browse_split=4                  " open file in previous window
 let g:gitgutter_map_keys=0                  " i am using those bindings myself
 
 if !has('nvim')
-    colorscheme codedark
+    " colorscheme codedark
+    colorscheme catppuccin_mocha
     " vim-airline
     let g:airline#extensions#tabline#enabled = 1 " Enable list of buffers on top
     let g:airline#extensions#tabline#buffer_nr_show = 1 " Show buffer index
@@ -96,10 +98,11 @@ let mapleader="\<Space>"
 
 " source .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
-" move line up
+" move lines 
 nnoremap <A-Up> ddkP
-" move line down
+vnoremap K :m '<-2<CR>gv=gv
 nnoremap <A-Down> ddp
+vnoremap J :m '>+1<CR>gv=gv
 " save file
 nnoremap <C-s> :update<CR>
 inoremap <C-s> <C-O>:update<CR>
@@ -116,6 +119,12 @@ nnoremap <leader>ff :find
 nnoremap <C-q> :bd<CR>
 " toggle terminal
 map <leader>t :horizontal term<CR>i
+
+" buffer nav
+nnoremap H <cmd>bprevious<CR>
+nnoremap L <cmd>bnext<CR>
+vnoremap H <cmd>bprevious<CR>
+vnoremap L <cmd>bnext<CR>
 
 " VIMSCRIPT """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('+termguicolors')
