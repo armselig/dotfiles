@@ -2,39 +2,27 @@ if type -q /usr/local/bin/brew
     eval "$(/usr/local/bin/brew shellenv)"
 end
 
+if type -q /home/linuxbrew/.linuxbrew/bin/brew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+end
+
 set OSTYPE "$(uname)"
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
-set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
-
 set -U fish_add_path /usr/local/bin ~/.local/bin
 set -U fish_greeting
 set -U fish_key_bindings fish_vi_key_bindings
-
-set -Ux BAT_THEME "Catppuccin Mocha"
-set -Ux EDITOR "vim"
+set -Ux EDITOR "vi"
 #set -Ux LS_COLORS '(vivid generate catppuccin-mocha)'
-# set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -Ux TERM alacritty
-set -Ux VISUAL "code"
-
-set -x NVM_DIR "~/.nvm"
+# set -Ux VISUAL "code"
+set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
+# set -x NVM_DIR "~/.nvm"$
+set -gx MANPAGER "sh -c 'col -bx | (command -v bat >/dev/null && bat -l man -p || command -v batcat >/dev/null && batcat -l man -p || cat)'"
 
 # budimanjojo/tmux.fish
 set -Ux fish_tmux_autostart false
 set -Ux fish_tmux_config $XDG_CONFIG_HOME/tmux/tmux.conf
 set -Ux fish_tmux_default_session_name "asl"
-
-# https://superuser.com/questions/874901/what-are-the-step-to-move-all-your-dotfiles-into-xdg-directories
-#set -Ux VIMDOTDIR "$XDG_CONFIG_HOME/vim"
-#set -Ux VIMINIT 'let $MYVIMRC="$VIMDOTDIR/vimrc" | source $MYVIMRC'
-
-# jorgebucaran/nvm.fish
-#set -Ux nvm_default_version "lts/iron"
-#set nvm_current_version # reset
-
-if type -q lsd
-    alias ls="lsd"
-end
 
 abbr l "ls"
 abbr ll "ls -l"
@@ -57,13 +45,23 @@ abbr ga "git add"
 abbr gs "git status"
 abbr susp "systemctl suspend"
 
-# if type -q batcat
-#     alias bat="batcat"
-# end
+if type -q vim
+    alias vi="vim"
+end
 
-# if type -q bat
-#     alias cat="bat"
-# end
+if type -q lsd
+    alias ls="lsd"
+end
+
+if type -q batcat
+    alias bat="batcat"
+end
+
+if type -q bat
+    # set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -Ux BAT_THEME "Catppuccin Mocha"
+    alias cat="bat"
+end
 
 if type -q rbenv
     eval "$(rbenv init -)"
@@ -71,10 +69,6 @@ end
 
 if type -q fzf
     fzf --fish | source
-end
-
-if type -q /home/linuxbrew/.linuxbrew/bin/brew
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 end
 
 # https://dev.to/fabientownsend/setup-node-and-nvm-with-fish-shell-5f3

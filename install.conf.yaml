@@ -42,3 +42,9 @@
       glob: true
       path: assets/img/*
       create: true
+    ~/.config/bat:
+      glob: true
+      path: bat/*
+    ~/.config/btop:
+      glob: true
+      path: btop/*
