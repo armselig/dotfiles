@@ -49,10 +49,16 @@ require('mason-lspconfig').setup({
 })
 
 -- lsps
-require('lspconfig').lua_ls.setup({
+local lspconfig = require('lspconfig')
+
+lspconfig.lua_ls.setup({
     on_init = function(client)
         lsp_zero.nvim_lua_settings(client, {})
     end,
+})
+
+lspconfig.volar.setup({
+    filetypes = { "typescript", "javascript", "vue" },
 })
 
 -- autocomplete
