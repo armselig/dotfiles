@@ -15,8 +15,8 @@ set -Ux EDITOR "vi"
 #set -Ux LS_COLORS '(vivid generate catppuccin-mocha)'
 set -Ux TERM alacritty
 # set -Ux VISUAL "code"
-set -x NVM_DIR "$XDG_CONFIG_HOME/nvm"
-# set -x NVM_DIR "~/.nvm"$
+set -gx NVM_DIR "$XDG_CONFIG_HOME/nvm"
+# set -gx NVM_DIR "~/.nvm"
 set -gx MANPAGER "sh -c 'col -bx | (command -v bat >/dev/null && bat -l man -p || command -v batcat >/dev/null && batcat -l man -p || cat)'"
 
 # budimanjojo/tmux.fish
@@ -73,9 +73,18 @@ end
 
 # https://dev.to/fabientownsend/setup-node-and-nvm-with-fish-shell-5f3
 function nvm
-    if type -q (brew --prefix nvm)/nvm.sh
-        bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
+    set -l nvm_script (brew --prefix nvm)/nvm.sh
+    if test -f $nvm_script
+        bass source $nvm_script --no-use ';' nvm $argv
+    else
+        echo "Error: NVM script not found at $nvm_script"
+        return 1
     end
 end
-nvm use default --silent
+# function nvm
+#     if type -q (brew --prefix nvm)/nvm.sh
+#         bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
+#     end
+# end
+# nvm use default --silent
 
