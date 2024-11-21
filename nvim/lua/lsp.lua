@@ -40,7 +40,7 @@ lsp_zero.format_on_save({
 -- mason
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'html', 'cssls', 'tsserver', 'eslint' },
+    ensure_installed = { 'html', 'cssls', 'ts_ls', 'eslint' },
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({})
