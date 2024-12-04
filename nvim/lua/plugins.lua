@@ -33,6 +33,7 @@ vim.cmd [[
         Plug 'akinsho/bufferline.nvim', { 'tag': '*' } " buffers on top
         Plug 'airblade/vim-gitgutter'
         Plug 'stevearc/conform.nvim'            " formatting
+        Plug 'rosstang/dimit.nvim'              " dim inactive panes
 
         " lsp
         Plug 'neovim/nvim-lspconfig'
@@ -179,3 +180,8 @@ require("telescope").load_extension "frecency"
 -- vim.cmd [[
 --     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 -- ]]
+
+--- rosstang/dimit.nvim
+require("dimit").setup({
+    bgcolor = mocha.crust,
+})
