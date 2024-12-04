@@ -9,6 +9,7 @@ vim.cmd [[
 
         " base
         Plug 'Mofiqul/vscode.nvim'
+        Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
         Plug 'jiangmiao/auto-pairs'             " auto-close '', (), {}...
         Plug 'christoomey/vim-tmux-navigator'
 
@@ -43,7 +44,8 @@ vim.cmd [[
     call plug#end()
 ]]
 
---- Mofiqul/vscode.nvim
+--- THEMING
+-- Mofiqul/vscode.nvim
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
     -- Alternatively set style in setup
@@ -74,18 +76,27 @@ require('vscode').setup({
     },
 })
 -- require('vscode').load()
-vim.cmd.colorscheme "vscode"
+
+-- catppuccin
+require('catppuccin').setup({
+    flavour = "mocha"
+})
+
+-- set global theme
+vim.cmd.colorscheme "catppuccin"
 
 require('nvim-ts-autotag').setup()
 require('nvim-tree').setup()
 require('lualine').setup({
     options = {
-        theme = 'vscode',
+        theme = 'catppuccin',
     },
 })
 
 --- akinsho/bufferline
-require("bufferline").setup({
+local mocha = require("catppuccin.palettes").get_palette "mocha"
+
+require('bufferline').setup({
     options = {
         buffer_close_icon = "",
         close_command = "bdelete %d",
@@ -103,6 +114,30 @@ require("bufferline").setup({
         show_close_icon = false,
         show_tab_indicators = true,
         diagnostics = "nvim_lsp"
+    },
+    highlights = require("catppuccin.groups.integrations.bufferline").get {
+        -- styles = { "italic", "bold" },
+        styles = { "bold" },
+        custom = {
+            -- all = {
+            --     fill = {
+            --         bg = "#000000",
+            --     },
+            -- },
+            mocha = {
+                fill = {
+                    bg = mocha.base,
+                    fg = mocha.text,
+                },
+                buffer_selected = {
+                    -- bg = mocha.surface0,
+                    fg = mocha.green,
+                },
+            },
+            latte = {
+                background = { fg = "#000000" },
+            },
+        },
     },
 })
 
