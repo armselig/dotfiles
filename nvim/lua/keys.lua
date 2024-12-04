@@ -52,3 +52,13 @@ key.set('t', '<leader><Up>', '<cmd>resize -2<CR>', { desc = "Pane: Reduce height
 key.set('t', '<leader><Down>', '<cmd>resize +2<CR>', { desc = "Pane: Increase height" })
 key.set('t', '<leader><Left>', '<cmd>vertical resize -2<CR>', { desc = "Pane: Reduce width" })
 key.set('t', '<leader><Right>', '<cmd>vertical resize +2<CR>', { desc = "Pane: Increase width" })
+
+--- DIAGNOSTICS
+key.set('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<CR>',
+    { desc = 'Diagnostics: Open float', noremap = true, silent = true })
+key.set('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>',
+    { desc = 'Diagnostics: Previous', noremap = true, silent = true })
+key.set('n', '<leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>',
+    { desc = 'Diagnostics: Next', noremap = true, silent = true })
+key.set('n', '<leader>dd', '<cmd>Telescope diagnostics<CR>',
+    { desc = 'Diagnostics: Browse', noremap = true, silent = true })
