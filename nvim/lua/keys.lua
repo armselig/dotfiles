@@ -9,6 +9,7 @@ key.set('t', '<C-h>', '<cmd>wincmd h<CR>', { desc = "Terminal: Go to left pane" 
 key.set('t', '<C-j>', '<cmd>wincmd j<CR>', { desc = "Terminal: Go to pane below" })
 key.set('t', '<C-k>', '<cmd>wincmd k<CR>', { desc = "Terminal: Go to pane above" })
 key.set('t', '<C-l>', '<cmd>wincmd l<CR>', { desc = "Terminal: Go to right pane" })
+key.set('n', '<leader>q', '<cmd>qa!<CR>', { desc = 'Force quit all' })
 
 --- FILE MANAGEMENT
 key.set({ 'n', 'v' }, '<leader>ff', '<cmd>Telescope find_files<CR>', { desc = "Files: Find" })
@@ -22,7 +23,7 @@ key.set({ 'n', 'v' }, '<leader>fp', function()
     })
 end
 , { desc = "Files: Prettify" })
-key.set({ 'n', 'v' }, '<leader>fr', '<cmd>Telescope frecency<CR>', { desc = "Files: fRecent" })
+key.set({ 'n', 'v' }, '<leader>fr', '<cmd>Telescope frecency workspace=CWD <CR>', { desc = "Files: fRecent" })
 
 --- GIT
 key.set({ 'n', 'v' }, '<leader>gg', '<cmd>Git<CR>', { desc = "Git gud" })
@@ -34,7 +35,7 @@ key.set({ 'n', 'v' }, '<leader>ga', ':Git add ', { desc = "Git add" })
 --- BUFFERS
 key.set({ 'n', 'v' }, 'H', '<cmd>bprevious<CR>', { desc = "Buffers: Previous" })
 key.set({ 'n', 'v' }, 'L', '<cmd>bnext<CR>', { desc = "Buffers: Next" })
-key.set({ 'n', 'v' }, '<leader>bs', '<cmd>Telescope buffers<CR>', { desc = "Buffers: List" })
+key.set({ 'n', 'v' }, '<leader>bb', '<cmd>Telescope buffers<CR>', { desc = "Buffers: Browse" })
 
 --- TEXT EDITING
 key.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
