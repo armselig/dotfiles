@@ -43,7 +43,7 @@ call plug#end()
 
 " OPTIONS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set autoindent				                " activate auto indentation
-set cc=80				                    " set column border
+set cc=100				                    " set column border
 set clipboard=unnamed,unnamedplus		    " activate clipboard sharing
 set cursorline				                " highlight current line
 set completeopt=noinsert,menuone,noselect   " auto-complete behaves more IDE-like
