@@ -157,6 +157,9 @@ require("bufferline").setup({
 	}),
 })
 
+--- folke/todo-comments.nvim
+require("todo-comments").setup()
+
 --- TREESITTER
 -- TODO: version check
 require("nvim-treesitter.configs").setup({
