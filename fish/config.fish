@@ -86,5 +86,5 @@ end
 #         bass source (brew --prefix nvm)/nvm.sh --on-use ';' nvm $argv
 #     end
 # end
-# nvm use default --silent
+nvm use default --silent
 
