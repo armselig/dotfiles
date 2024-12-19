@@ -34,6 +34,7 @@ vim.cmd([[
         Plug 'airblade/vim-gitgutter'
         Plug 'stevearc/conform.nvim'            " formatting
         Plug 'rosstang/dimit.nvim'              " dim inactive panes
+        Plug 'folke/todo-comments.nvim'
 
         " lsp
         Plug 'neovim/nvim-lspconfig'
