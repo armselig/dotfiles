@@ -1,0 +1,77 @@
+{
+  "name": "tmpl-webdev-configs",
+  "version": "0.1.1",
+  "description": "Some default configuration files I need in almost any project.",
+  "private": true,
+  "scripts": {
+    "//": [
+      "Based on https://gist.github.com/adamreisnz/9edf1f48e19c104b81f8102a27de0940",
+      "Good read: https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/"
+    ],
+    "clean:prod": "rimraf dist",
+    "mkdir:prod": "mkdirp dist/js & mkdirp dist/css",
+    "copy:html": "find ./src/ -name '*.html' -type f -exec cp {} \"./dist/\" ;",
+    "copy:css": "cp ./src/css/*.css ./dist/css",
+    "copy:assets": "cp -r ./assets/** ./dist",
+    "copy": "npm-run-all --parallel copy:html copy:assets",
+    "compile:css": "node-sass --source-map true ./src/scss/index.scss ./src/css/index.css",
+    "purge:css": "purgecss --css ./src/css/main.css --content ./src/**/*.html --out ./src/css/",
+    "prefix:css": "postcss --use autoprefixer -b \"last 5 versions\" ./src/css/main.css -o ./src/css/main.css",
+    "minify:css": "node-sass --output-style compressed ./src/css/main.css ./src/css/main.css",
+    "watch:sass": "node-sass -w --source-map true ./src/scss/ -o ./dist/css/",
+    "watch:html": "onchange \"./src/**/*.html\" -- npm run copy:html",
+    "watch:assets": "onchange \"./assets/**/*\" -- npm run copy:assets",
+    "watch": "npm-run-all --parallel watch:sass watch:html watch:assets",
+    "preserve": "npm run copy",
+    "serve": "browser-sync start --server \"./dist\" --files \"./dist/**/*.(js|css|html)\" --reload-debounce 500",
+    "dev": "npm-run-all --parallel serve watch",
+    "build:css": "npm-run-all compile:css purge:css prefix:css minify:css copy:css",
+    "prebuild": "npm-run-all clean:prod mkdir:prod copy",
+    "build": "npm-run-all build:css",
+    "lint:scripts": "eslint --ext js,ts,tsx ./src",
+    "lint:styles": "stylelint ./src/**/*.{css,pcss,scss}",
+    "prettify": "prettier --check --write \"./**/*.+(html|js|jsx|json|yml|yaml|css|md|pcss|scss|ts|tsx|vue)\""
+  },
+  "repository": "git+https://github.com/armselig/##.git", // github:user/repo
+  "author": "Hendrik Neumann <henne@armselig.net> (https://hendrik.koeln/)",
+  "contributors": [
+    "Flavio Copes <flavio@flaviocopes.com> (https://flaviocopes.com)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/armselig/##/issues",
+    "email": "henne@armselig.net"
+  },
+  "homepage": "https://github.com/armselig/####readme",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": "npm run lint:scripts",
+    "*.{css,pcss,scss}": "npm run lint:styles"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.0",
+    "browser-sync": "^2.26.7",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^6.0.0",
+    "postcss-cli": "^6.1.2",
+    "purgecss": "^1.3.0",
+    "rimraf": "^2.6.3"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie < 11"
+  ],
+  "engines": {
+    "node": ">=15.11.0",
+    "npm": ">=7.6.0"
+  }
+}
