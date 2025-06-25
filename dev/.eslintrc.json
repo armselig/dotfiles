@@ -1,0 +1,22 @@
+{
+  "rules": {},
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "ignorePatterns": ["dist/**/*"]
+}
