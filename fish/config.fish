@@ -28,6 +28,7 @@ abbr l "ls"
 abbr ll "ls -l"
 abbr lal "ls -al"
 abbr tasl "tmux new -A -s asl"
+abbr ta "tmux attach"
 abbr cfish "$EDITOR $XDG_CONFIG_HOME/fish/config.fish"
 abbr cnvim "$EDITOR $XDG_CONFIG_HOME/nvim/init.lua"
 abbr cvim "$EDITOR $HOME/.vimrc"
@@ -37,7 +38,10 @@ abbr cdot "$EDITOR $HOME/.dotfiles/install.conf.yaml"
 abbr sfish "source $XDG_CONFIG_HOME/fish/config.fish"
 abbr d5n "ssh d5n -t 'tmux new -As asl'"
 abbr gco "git checkout"
+abbr gca "git commit --amend"
 abbr gcm --set-cursor "git commit -m \"%\"" 
+abbr glo "git log --oneline"
+abbr glg "git log --graph --decorate --all"
 abbr gpl "git pull"
 abbr gps "git push"
 abbr gf "git fetch"
@@ -88,3 +92,10 @@ end
 # end
 nvm use default --silent
 
+
+# pnpm
+set -gx PNPM_HOME "/Users/henneuma/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
