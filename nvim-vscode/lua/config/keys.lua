@@ -6,8 +6,8 @@ key.set({ "n", "v" }, "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Fi
 key.set({ "n", "v" }, "n", "nzz", { desc = "Center next search result" })
 key.set({ "n", "v" }, "N", "Nzz", { desc = "Center previous search result" })
 key.set("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Force quit all" })
-key.set({ "n", "v" }, "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
-key.set({ "n", "v" }, "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
+-- key.set({ "n", "v" }, "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
+-- key.set({ "n", "v" }, "<C-d>", "<C-d>zz", { desc = "Scroll down and center" })
 
 --- FILE MANAGEMENT
 key.set({ "n", "v" }, "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Files: Find" })
