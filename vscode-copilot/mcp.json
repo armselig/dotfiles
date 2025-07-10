@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
+    },
+    "git": {
+      "command": "/Users/henneuma/.local/bin/uv",
+      "args": ["tool", "run", "mcp-server-git", "${workspaceFolder}"]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"]
+    }
+  }
+}
