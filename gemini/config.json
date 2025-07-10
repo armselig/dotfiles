@@ -1,0 +1,7 @@
+{
+  "preamble": "preamble.md",
+  "prompts": "prompts",
+  "model": "gemini-1.5-pro-latest",
+  "temperature": 0.7,
+  "prompt_variables": {}
+}
