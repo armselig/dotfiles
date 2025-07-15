@@ -1,4 +1,5 @@
 local key = vim.keymap
+-- make sure this runs after plugin has been loaded!
 local conform = require("conform")
 
 --- MISC
@@ -10,6 +11,8 @@ key.set("t", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Terminal: Go to pane below"
 key.set("t", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Terminal: Go to pane above" })
 key.set("t", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Terminal: Go to right pane" })
 key.set("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Force quit all" })
+key.set("n", "<C-q>", "<cmd>bd<CR>", { desc = "Close buffer" })
+key.set("n", "<leader>t", ":horizontal term<CR>i", { desc = "Toggle terminal" })
 
 --- FILE MANAGEMENT
 key.set({ "n", "v" }, "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Files: Find" })
@@ -24,6 +27,9 @@ key.set({ "n", "v" }, "<leader>fp", function()
 end, { desc = "Files: Prettify" })
 key.set({ "n", "v" }, "<leader>fr", "<cmd>Telescope frecency workspace=CWD <CR>", { desc = "Files: fRecent" })
 key.set("n", "<leader>ft", "<cmd>TodoTelescope<CR>", { desc = "Files: To-do" })
+key.set("n", "<C-s>", ":update<CR>", { desc = "Save file" })
+key.set("i", "<C-s>", "<C-O>:update<CR>", { desc = "Save file" })
+key.set("v", "<C-s>", "<C-c>:update<CR>", { desc = "Save file" })
 
 --- GIT
 key.set({ "n", "v" }, "<leader>gg", "<cmd>Git<CR>", { desc = "Git gud" })
@@ -42,6 +48,10 @@ key.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 key.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 key.set("n", "<leader>h", "^", { desc = "Go to first non-whitespace character in line" })
 key.set("n", "<leader>l", "$", { desc = "Go to end of line" })
+key.set("n", "<A-Up>", "ddkP", { desc = "Move line up" })
+key.set("n", "<A-Down>", "ddp", { desc = "Move line down" })
+key.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up and center" })
+key.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down and center" })
 
 --- RESIZING
 key.set("n", "<leader><Up>", ":resize -2<CR>", { desc = "Pane: Reduce height" })

@@ -1,4 +1,18 @@
 --- VIM-PLUG
+
+-- auto-install vim-plug
+local plug_path = vim.fn.stdpath("data") .. "/site/autoload/plug.vim"
+if vim.fn.empty(vim.fn.glob(plug_path)) > 0 then
+	vim.fn.system({
+		"curl",
+		"-fLo",
+		plug_path,
+		"--create-dirs",
+		"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+	})
+	vim.api.nvim_exec_autocmds("VimEnter", { group = "*", modeline = false })
+end
+
 vim.cmd([[
     call plug#begin(stdpath('data') . '/plugged')
         " the pope is the man
@@ -80,12 +94,36 @@ require("vscode").setup({
 -- require('vscode').load()
 
 -- catppuccin
+local mocha = require("catppuccin.palettes").get_palette("mocha")
+
 require("catppuccin").setup({
 	flavour = "mocha",
+	custom_highlights = function(colors)
+		return {
+			Normal = { bg = colors.crust },
+		}
+	end,
 })
 
 -- set global theme
 vim.cmd.colorscheme("catppuccin")
+
+-- Change line number color based on window focus
+local line_nr_group = vim.api.nvim_create_augroup("LineNrColor", { clear = true })
+vim.api.nvim_create_autocmd("WinEnter", {
+	group = line_nr_group,
+	pattern = "*",
+	callback = function()
+		vim.opt.winhighlight = "Normal:Normal,LineNr:WarningMsg"
+	end,
+})
+vim.api.nvim_create_autocmd("WinLeave", {
+	group = line_nr_group,
+	pattern = "*",
+	callback = function()
+		vim.opt.winhighlight = "Normal:Normal,LineNr:LineNr"
+	end,
+})
 
 require("nvim-ts-autotag").setup()
 require("nvim-tree").setup({
@@ -110,7 +148,8 @@ require("lualine").setup({
 })
 
 --- akinsho/bufferline
-local mocha = require("catppuccin.palettes").get_palette("mocha")
+
+--- akinsho/bufferline
 
 require("bufferline").setup({
 	options = {
@@ -201,5 +240,5 @@ require("telescope").load_extension("frecency")
 
 --- rosstang/dimit.nvim
 require("dimit").setup({
-	bgcolor = mocha.crust,
+	bgcolor = mocha.base,
 })
