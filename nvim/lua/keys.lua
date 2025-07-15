@@ -38,9 +38,11 @@ key.set({ "n", "v" }, "<leader>gps", "<cmd>Git push<CR>", { desc = "Git push" })
 key.set({ "n", "v" }, "<leader>gco", ":Git checkout ", { desc = "Git checkout" })
 key.set({ "n", "v" }, "<leader>ga", ":Git add ", { desc = "Git add" })
 
+--- WINDOWS
+key.set({ "n", "v" }, "H", "<C-w>p", { desc = "Window: Previous" })
+key.set({ "n", "v" }, "L", "<C-w>w", { desc = "Window: Next" })
+
 --- BUFFERS
-key.set({ "n", "v" }, "H", "<cmd>bprevious<CR>", { desc = "Buffers: Previous" })
-key.set({ "n", "v" }, "L", "<cmd>bnext<CR>", { desc = "Buffers: Next" })
 key.set({ "n", "v" }, "<leader>bb", "<cmd>Telescope buffers<CR>", { desc = "Buffers: Browse" })
 
 --- TEXT EDITING
