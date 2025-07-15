@@ -17,7 +17,7 @@ set -U fish_key_bindings fish_vi_key_bindings
 
 # Exported environment variables
 set -gx OSTYPE "$(uname)"
-set -Ux EDITOR "nvim" # Or "vim"
+set -Ux EDITOR "vi" # Or "vim"
 # set -Ux VISUAL "code" # Uncomment if you use VSCode as your primary graphical editor
 set -Ux TERM alacritty # Your terminal emulator
 
@@ -116,6 +116,10 @@ abbr susp "systemctl suspend"
 # Alias 'vi' to 'vim' if vim is available
 if type -q vim
     alias vi="vim"
+end
+
+if type -q nvim
+    alias vim="nvim"
 end
 
 # Alias 'ls' to 'lsd' if lsd is available
