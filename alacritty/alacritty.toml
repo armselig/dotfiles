@@ -11,3 +11,6 @@ decorations = "Buttonless"
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 size = 16
 
+[keyboard]
+option_as_alt = "Both"
+

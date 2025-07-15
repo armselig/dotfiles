@@ -11,5 +11,7 @@ font:
     family: "JetBrainsMono Nerd Font"
     style: "Regular"
   # size: 11
+keyboard:
+  option_as_alt: Both
 import:
   - ~/.config/alacritty/catppuccin-mocha.yml 

@@ -1,6 +1,9 @@
 local key = vim.keymap
--- make sure this runs after plugin has been loaded!
-local conform = require("conform")
+local conform
+if not vim.g.vscode then
+	-- make sure this runs after plugin has been loaded!
+	conform = require("conform")
+end
 
 --- MISC
 key.set({ "n", "v" }, "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Find help tags" })
@@ -11,7 +14,6 @@ key.set("t", "<C-j>", "<cmd>wincmd j<CR>", { desc = "Terminal: Go to pane below"
 key.set("t", "<C-k>", "<cmd>wincmd k<CR>", { desc = "Terminal: Go to pane above" })
 key.set("t", "<C-l>", "<cmd>wincmd l<CR>", { desc = "Terminal: Go to right pane" })
 key.set("n", "<leader>q", "<cmd>qa!<CR>", { desc = "Force quit all" })
-key.set("n", "<C-q>", "<cmd>bd<CR>", { desc = "Close buffer" })
 key.set("n", "<leader>t", ":horizontal term<CR>i", { desc = "Toggle terminal" })
 
 --- FILE MANAGEMENT
@@ -39,11 +41,12 @@ key.set({ "n", "v" }, "<leader>gco", ":Git checkout ", { desc = "Git checkout" }
 key.set({ "n", "v" }, "<leader>ga", ":Git add ", { desc = "Git add" })
 
 --- WINDOWS
-key.set({ "n", "v" }, "H", "<C-w>p", { desc = "Window: Previous" })
-key.set({ "n", "v" }, "L", "<C-w>w", { desc = "Window: Next" })
 
---- BUFFERS
+--- BUFFERS & WINDOWS
 key.set({ "n", "v" }, "<leader>bb", "<cmd>Telescope buffers<CR>", { desc = "Buffers: Browse" })
+key.set({ "n", "v" }, "H", "<cmd>bprev<CR>", { desc = "Buffer: Previous" })
+key.set({ "n", "v" }, "L", "<cmd>bnext<CR>", { desc = "Buffer: Next" })
+key.set("n", "<C-q>", "<cmd>bd<CR>", { desc = "Close buffer" })
 
 --- TEXT EDITING
 key.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
