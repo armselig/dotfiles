@@ -22,5 +22,9 @@
   "prompts": "prompts",
   "model": "gemini-1.5-pro-latest",
   "temperature": 0.7,
-  "prompt_variables": {}
+  "prompt_variables": {},
+  "vscode": {
+    "genie.code-assist.model": "gemini-1.5-pro-latest",
+    "genie.code-assist.temperature": 0.7
+  }
 }
