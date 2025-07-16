@@ -8,3 +8,6 @@ Was stört mich? Was fehlt? Was kann ich verbessern?
 - [ ] Brauche/möchte ich KI-Integration -> gemini im eigenen fenster
 - [ ] `vim-tmux-navigator`: Lag beim Switch nvim -> tmux muss weg
 - [ ] Project Manager
+  - <https://dev.to/saltaformajo/boost-your-productivity-with-this-neovim-plugin-for-project-management-2bd8>
+  - Aber eigentlich reicht der tmux-Ansatz - insbes. in Verbindung mit VSCode
+- [ ] SVG-Preview in telescope
