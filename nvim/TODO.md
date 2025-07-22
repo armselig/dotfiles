@@ -11,3 +11,8 @@ Was stört mich? Was fehlt? Was kann ich verbessern?
   - <https://dev.to/saltaformajo/boost-your-productivity-with-this-neovim-plugin-for-project-management-2bd8>
   - Aber eigentlich reicht der tmux-Ansatz - insbes. in Verbindung mit VSCode
 - [ ] SVG-Preview in telescope
+- [ ] Fix JSDoc-Prop-Highlighting
+- [ ] Keybinding `Telescope marks`
+- [ ] Keybinding `source nvim config`
+- [ ] `nvim-treesitter` config anpassen (Syntax Highlighting, JSDoc etc.)
+- [ ] `shada` file anlegen

@@ -30,6 +30,7 @@ opt.smartindent = true
 opt.softtabstop = 4
 opt.splitbelow = true
 opt.splitright = true
+opt.shada = "'1000,f1,<50,s10,h"
 opt.tabstop = 4
 -- opt.t_Co = 256
 opt.termguicolors = true

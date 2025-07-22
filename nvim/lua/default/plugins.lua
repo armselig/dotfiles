@@ -3,14 +3,14 @@
 -- auto-install vim-plug
 local plug_path = vim.fn.stdpath("data") .. "/site/autoload/plug.vim"
 if vim.fn.empty(vim.fn.glob(plug_path)) > 0 then
-	vim.fn.system({
-		"curl",
-		"-fLo",
-		plug_path,
-		"--create-dirs",
-		"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
-	})
-	vim.api.nvim_exec_autocmds("VimEnter", { group = "*", modeline = false })
+    vim.fn.system({
+        "curl",
+        "-fLo",
+        plug_path,
+        "--create-dirs",
+        "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
+    })
+    vim.api.nvim_exec_autocmds("VimEnter", { group = "*", modeline = false })
 end
 
 vim.cmd([[
@@ -64,32 +64,32 @@ vim.cmd([[
 -- Mofiqul/vscode.nvim
 local c = require("vscode.colors").get_colors()
 require("vscode").setup({
-	-- Alternatively set style in setup
-	-- style = 'light'
+    -- Alternatively set style in setup
+    -- style = 'light'
 
-	-- Enable transparent background
-	transparent = true,
+    -- Enable transparent background
+    transparent = true,
 
-	-- Enable italic comment
-	italic_comments = true,
+    -- Enable italic comment
+    italic_comments = true,
 
-	-- Underline `@markup.link.*` variants
-	underline_links = true,
+    -- Underline `@markup.link.*` variants
+    underline_links = true,
 
-	-- Disable nvim-tree background color
-	disable_nvimtree_bg = true,
+    -- Disable nvim-tree background color
+    disable_nvimtree_bg = true,
 
-	-- Override colors (see ./lua/vscode/colors.lua)
-	color_overrides = {
-		vscLineNumber = "#FFFFFF",
-	},
+    -- Override colors (see ./lua/vscode/colors.lua)
+    color_overrides = {
+        vscLineNumber = "#FFFFFF",
+    },
 
-	-- Override highlight groups (see ./lua/vscode/theme.lua)
-	group_overrides = {
-		-- this supports the same val table as vim.api.nvim_set_hl
-		-- use colors from this colorscheme by requiring vscode.colors!
-		Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
-	},
+    -- Override highlight groups (see ./lua/vscode/theme.lua)
+    group_overrides = {
+        -- this supports the same val table as vim.api.nvim_set_hl
+        -- use colors from this colorscheme by requiring vscode.colors!
+        Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+    },
 })
 -- require('vscode').load()
 
@@ -97,12 +97,12 @@ require("vscode").setup({
 local mocha = require("catppuccin.palettes").get_palette("mocha")
 
 require("catppuccin").setup({
-	flavour = "mocha",
-	custom_highlights = function(colors)
-		return {
-			Normal = { bg = colors.crust },
-		}
-	end,
+    flavour = "mocha",
+    custom_highlights = function(colors)
+        return {
+            Normal = { bg = colors.crust },
+        }
+    end,
 })
 
 -- set global theme
@@ -111,40 +111,40 @@ vim.cmd.colorscheme("catppuccin")
 -- Change line number color based on window focus
 local line_nr_group = vim.api.nvim_create_augroup("LineNrColor", { clear = true })
 vim.api.nvim_create_autocmd("WinEnter", {
-	group = line_nr_group,
-	pattern = "*",
-	callback = function()
-		vim.opt.winhighlight = "Normal:Normal,LineNr:WarningMsg"
-	end,
+    group = line_nr_group,
+    pattern = "*",
+    callback = function()
+        vim.opt.winhighlight = "Normal:Normal,LineNr:WarningMsg"
+    end,
 })
 vim.api.nvim_create_autocmd("WinLeave", {
-	group = line_nr_group,
-	pattern = "*",
-	callback = function()
-		vim.opt.winhighlight = "Normal:Normal,LineNr:LineNr"
-	end,
+    group = line_nr_group,
+    pattern = "*",
+    callback = function()
+        vim.opt.winhighlight = "Normal:Normal,LineNr:LineNr"
+    end,
 })
 
 require("nvim-ts-autotag").setup()
 require("nvim-tree").setup({
-	-- disable window_picker for
-	-- explorer to work well with
-	-- window splits
-	actions = {
-		open_file = {
-			window_picker = {
-				enable = false,
-			},
-		},
-	},
-	git = {
-		ignore = false,
-	},
+    -- disable window_picker for
+    -- explorer to work well with
+    -- window splits
+    actions = {
+        open_file = {
+            window_picker = {
+                enable = false,
+            },
+        },
+    },
+    git = {
+        ignore = false,
+    },
 })
 require("lualine").setup({
-	options = {
-		theme = "catppuccin",
-	},
+    options = {
+        theme = "catppuccin",
+    },
 })
 
 --- akinsho/bufferline
@@ -152,48 +152,48 @@ require("lualine").setup({
 --- akinsho/bufferline
 
 require("bufferline").setup({
-	options = {
-		buffer_close_icon = "",
-		close_command = "bdelete %d",
-		close_icon = "󰅙",
-		indicator = {
-			style = "icon",
-			icon = " ",
-		},
-		left_trunc_marker = "",
-		modified_icon = "●",
-		numbers = true,
-		offsets = { { filetype = "NvimTree", text = "EXPLORER", text_align = "center" } },
-		right_mouse_command = "bdelete! %d",
-		right_trunc_marker = "",
-		show_close_icon = false,
-		show_tab_indicators = true,
-		diagnostics = "nvim_lsp",
-	},
-	highlights = require("catppuccin.groups.integrations.bufferline").get({
-		-- styles = { "italic", "bold" },
-		styles = { "bold" },
-		custom = {
-			-- all = {
-			--     fill = {
-			--         bg = "#000000",
-			--     },
-			-- },
-			mocha = {
-				fill = {
-					bg = mocha.base,
-					fg = mocha.text,
-				},
-				buffer_selected = {
-					-- bg = mocha.surface0,
-					fg = mocha.green,
-				},
-			},
-			latte = {
-				background = { fg = "#000000" },
-			},
-		},
-	}),
+    options = {
+        buffer_close_icon = "",
+        close_command = "bdelete %d",
+        close_icon = "󰅙",
+        indicator = {
+            style = "icon",
+            icon = " ",
+        },
+        left_trunc_marker = "",
+        modified_icon = "●",
+        numbers = true,
+        offsets = { { filetype = "NvimTree", text = "EXPLORER", text_align = "center" } },
+        right_mouse_command = "bdelete! %d",
+        right_trunc_marker = "",
+        show_close_icon = false,
+        show_tab_indicators = true,
+        diagnostics = "nvim_lsp",
+    },
+    highlights = require("catppuccin.groups.integrations.bufferline").get({
+        -- styles = { "italic", "bold" },
+        styles = { "bold" },
+        custom = {
+            -- all = {
+            --     fill = {
+            --         bg = "#000000",
+            --     },
+            -- },
+            mocha = {
+                fill = {
+                    bg = mocha.base,
+                    fg = mocha.text,
+                },
+                buffer_selected = {
+                    -- bg = mocha.surface0,
+                    fg = mocha.green,
+                },
+            },
+            latte = {
+                background = { fg = "#000000" },
+            },
+        },
+    }),
 })
 
 --- folke/todo-comments.nvim
@@ -202,32 +202,60 @@ require("todo-comments").setup()
 --- TREESITTER
 -- TODO: version check
 require("nvim-treesitter.configs").setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = true, -- should fix indentation of multiline comments
-	},
+    highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false, -- should fix indentation of multiline comments
+    },
+    -- indent = { enable = true },
+    -- ensure_installed = {
+    --     "bash",
+    --     "c",
+    --     "css",
+    --     "diff",
+    --     "html",
+    --     "javascript",
+    --     "jsdoc",
+    --     "json",
+    --     "jsonc",
+    --     "lua",
+    --     "luadoc",
+    --     "luap",
+    --     "markdown",
+    --     "markdown_inline",
+    --     "printf",
+    --     "python",
+    --     "query",
+    --     "regex",
+    --     "toml",
+    --     "tsx",
+    --     "typescript",
+    --     "vim",
+    --     "vimdoc",
+    --     "xml",
+    --     "yaml",
+    -- },
 })
 
 --- CONFORM
 require("conform").setup({
-	formatters_by_ft = {
-		-- empty for ts/js so that formatting is done by lsp
-		javascript = {},
-		javascriptreact = {},
-		typescript = {},
-		typescriptreact = {},
-		css = { "prettierd", "prettier", stop_after_first = true },
-		html = { "prettierd", "prettier", stop_after_first = true },
-		json = { "prettierd", "prettier", stop_after_first = true },
-		yaml = { "prettierd", "prettier", stop_after_first = true },
-		markdown = { "prettierd", "prettier", stop_after_first = true },
-		lua = { "stylua" },
-	},
-	format_on_save = {
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 1000,
-	},
+    formatters_by_ft = {
+        -- empty for ts/js so that formatting is done by lsp
+        javascript = {},
+        javascriptreact = {},
+        typescript = {},
+        typescriptreact = {},
+        css = { "prettierd", "prettier", stop_after_first = true },
+        html = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+        markdown = { "prettierd", "prettier", stop_after_first = true },
+        lua = { "stylua" },
+    },
+    format_on_save = {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+    },
 })
 
 --- TELESCOPE & PLUGINS
@@ -240,5 +268,5 @@ require("telescope").load_extension("frecency")
 
 --- rosstang/dimit.nvim
 require("dimit").setup({
-	bgcolor = mocha.base,
+    bgcolor = mocha.base,
 })
