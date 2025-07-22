@@ -6,12 +6,10 @@ if vim.g.vscode then
 	local current_dir = vim.fn.expand("<sfile>:p:h")
 	vim.opt.rtp:prepend(current_dir)
 
-	-- require("vsc-nvim.keys")
+	require("vsc-nvim.keys")
 	require("vsc-nvim.lazy")
 else
 	require("default.plugins")
-	-- require("default.keys")
+	require("default.keys")
 	require("default.lsp")
 end
-
-require("default.keys")
