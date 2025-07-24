@@ -53,11 +53,10 @@ vim.cmd([[
 
         " lsp
         Plug 'neovim/nvim-lspconfig'
-        Plug 'hrsh7th/nvim-cmp'
-        Plug 'hrsh7th/cmp-nvim-lsp'
-        Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v4.x'}
         Plug 'williamboman/mason.nvim'
         Plug 'williamboman/mason-lspconfig.nvim'
+        Plug 'hrsh7th/nvim-cmp'
+        Plug 'hrsh7th/cmp-nvim-lsp'
     call plug#end()
 ]])
 
@@ -206,14 +205,13 @@ require("todo-comments").setup()
 --- TREESITTER
 -- TODO: version check
 require("nvim-treesitter.configs").setup({
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false, -- should fix indentation of multiline comments
-	},
+	-- highlight = {
+	-- 	enable = true,
+	-- 	additional_vim_regex_highlighting = false, -- should fix indentation of multiline comments
+	-- },
 	indent = { enable = true },
 	ensure_installed = {
 		"bash",
-		"c",
 		"css",
 		"diff",
 		"html",
