@@ -7,12 +7,13 @@ Was stört mich? Was fehlt? Was kann ich verbessern?
 - [x] Colorscheme: Farben für aktive/inaktive Panes tauschen
 - [ ] Brauche/möchte ich KI-Integration -> gemini im eigenen fenster
 - [ ] `vim-tmux-navigator`: Lag beim Switch nvim -> tmux muss weg
-- [ ] Project Manager
+- [x] Project Manager
   - <https://dev.to/saltaformajo/boost-your-productivity-with-this-neovim-plugin-for-project-management-2bd8>
   - Aber eigentlich reicht der tmux-Ansatz - insbes. in Verbindung mit VSCode
 - [ ] SVG-Preview in telescope
 - [ ] Fix JSDoc-Prop-Highlighting
 - [ ] Keybinding `Telescope marks`
 - [ ] Keybinding `source nvim config`
-- [ ] `nvim-treesitter` config anpassen (Syntax Highlighting, JSDoc etc.)
-- [ ] `shada` file anlegen
+- [x] `nvim-treesitter` config anpassen (Syntax Highlighting, JSDoc etc.)
+- [x] `shada` file anlegen
+- [ ] auf vim.pack umstellen
