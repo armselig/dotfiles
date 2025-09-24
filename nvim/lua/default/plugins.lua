@@ -31,6 +31,7 @@ vim.cmd([[
         Plug 'jonsmithers/vim-html-template-literals'
         Plug 'pangloss/vim-javascript'
         Plug 'ap/vim-css-color'
+        Plug 'amadeus/vim-mjml'
 
         " misc
         Plug 'nvim-tree/nvim-web-devicons'      " icons for nvim-tree
@@ -251,6 +252,7 @@ require("conform").setup({
 		json = { "prettierd", "prettier", stop_after_first = true },
 		yaml = { "prettierd", "prettier", stop_after_first = true },
 		markdown = { "prettierd", "prettier", stop_after_first = true },
+		mjml = { "prettierd", "prettier", stop_after_first = true },
 		lua = { "stylua" },
 	},
 	format_on_save = {

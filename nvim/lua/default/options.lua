@@ -67,3 +67,14 @@ vim.api.nvim_create_autocmd(
     }
 )
 
+-- MJML filetype detection
+vim.api.nvim_create_augroup("MjmlFiletype", { clear = true })
+vim.api.nvim_create_autocmd(
+	{ "BufNewFile", "BufRead" },
+	{
+		pattern = "*.mjml",
+		command = "set filetype=mjml",
+		group = "MjmlFiletype",
+	}
+)
+
