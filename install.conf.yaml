@@ -2,36 +2,36 @@
     link:
       relink: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - link:
     ~/.bashrc: bashrc
     ~/.bash_aliases: bash_aliases
-    ~/.vimrc: 
+    ~/.vimrc:
       path: vimrc
       create: true
     ~/.config/alacritty:
       glob: true
       path: alacritty/*
     ~/.config/fish/config.fish: fish/config.fish
-    #~/.config/nvim/init.vim: 
-      #path: init.vim
-      #create: true
+    #~/.config/nvim/init.vim:
+    #path: init.vim
+    #create: true
     ~/.config/nvim:
       glob: true
       path: nvim/*
       create: true
-    ~/.config/tmux/tmux.conf: 
+    ~/.config/tmux/tmux.conf:
       path: tmux.conf
       create: true
     ~/.config/zsh:
       glob: true
       path: zsh/*
-      prefix: '.'
-    ~/.config/sway: 
+      prefix: "."
+    ~/.config/sway:
       glob: true
       path: sway/*
-    ~/.config/waybar: 
+    ~/.config/waybar:
       glob: true
       path: waybar/*
     ~/.config/swaylock/config: swaylock
@@ -48,3 +48,6 @@
     ~/.config/btop:
       glob: true
       path: btop/*
+    ~/.gemini:
+      glob: true
+      path: gemini/*

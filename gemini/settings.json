@@ -1,5 +1,12 @@
 {
-  "servers": {
+  "theme": "Default",
+  "selectedAuthType": "oauth-personal",
+  "autoAccept": false,
+  "vimMode": true,
+  "checkpointing": { "enabled": true },
+  "usageStatistics": true,
+  "chatCompression": { "contextPercentageThreshold": 0.6 },
+  "mcpServers": {
     "sequential-thinking": {
       "command": "npx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
@@ -12,16 +19,14 @@
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
     },
-    "figma": {
-      "url": "http://127.0.0.1:3845/mcp"
-    },
     "git": {
       "command": "uvx",
       "args": ["mcp-server-git"]
     },
     "playwright": {
       "command": "npx",
-      "args": ["-y", "@playwright/mcp@latest"]
+      "args": ["@playwright/mcp@latest"]
     }
-  }
+  },
+  "preferredEditor": "vscode"
 }

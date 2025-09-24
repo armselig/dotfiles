@@ -1,4 +1,4 @@
-# Mandatory file for AI agents
+# Mandatory file for AI agentsGENT
 
 This file follows the [`AGENTS.md` specs](https://agents.md/).
 
