@@ -1,11 +1,27 @@
 {
-  "theme": "Default",
-  "selectedAuthType": "oauth-personal",
-  "autoAccept": false,
-  "vimMode": true,
-  "checkpointing": { "enabled": true },
-  "usageStatistics": true,
-  "chatCompression": { "contextPercentageThreshold": 0.6 },
+  "general": {
+    "vimMode": true,
+    "preferredEditor": "vscode"
+  },
+  "ui": {
+    "theme": "Default"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "model": {
+    "chatCompression": {
+      "contextPercentageThreshold": 0.6
+    }
+  },
+  "context": {
+    "fileName": ["AGENTS.md"]
+  },
   "mcpServers": {
     "sequential-thinking": {
       "command": "npx",
@@ -27,6 +43,6 @@
       "command": "npx",
       "args": ["@playwright/mcp@latest"]
     }
-  },
-  "preferredEditor": "vscode"
+  }
 }
+
