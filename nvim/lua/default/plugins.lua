@@ -174,30 +174,8 @@ require("bufferline").setup({
 		show_tab_indicators = true,
 		diagnostics = "nvim_lsp",
 	},
-	highlights = require("catppuccin.groups.integrations.bufferline").get({
-		-- styles = { "italic", "bold" },
-		styles = { "bold" },
-		custom = {
-			-- all = {
-			--     fill = {
-			--         bg = "#000000",
-			--     },
-			-- },
-			mocha = {
-				fill = {
-					bg = mocha.base,
-					fg = mocha.text,
-				},
-				buffer_selected = {
-					-- bg = mocha.surface0,
-					fg = mocha.green,
-				},
-			},
-			latte = {
-				background = { fg = "#000000" },
-			},
-		},
-	}),
+	highlights = require("catppuccin.special.bufferline").get_theme(),
+
 })
 
 --- folke/todo-comments.nvim
