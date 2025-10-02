@@ -20,7 +20,7 @@
     }
   },
   "context": {
-    "fileName": ["AGENTS.md"]
+    "fileName": ["AGENTS.md", "GEMINI.md", ".vscode/copilot-instructions.md"]
   },
   "mcpServers": {
     "sequential-thinking": {
@@ -28,9 +28,14 @@
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "memory": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"]
-    },
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-memory",
+                "--storage",
+                "/Users/henneuma/.gemini/knowledge_graph.json"
+            ]
+        },
     "context7": {
       "command": "npx",
       "args": ["-y", "@upstash/context7-mcp"]
@@ -45,4 +50,3 @@
     }
   }
 }
-
