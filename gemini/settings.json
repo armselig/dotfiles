@@ -24,20 +24,18 @@
   },
   "mcpServers": {
     "sequential-thinking": {
-      "command": "npx",
+      "command": "pnpx",
       "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     },
     "memory": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@modelcontextprotocol/server-memory",
-                "--storage",
-                "/Users/henneuma/.gemini/knowledge_graph.json"
-            ]
-        },
+      "command": "pnpx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "env": {
+        "MEMORY_FILE_PATH": "~/.gemini/knowledge_graph.json"
+      }
+    },
     "context7": {
-      "command": "npx",
+      "command": "pnpx",
       "args": ["-y", "@upstash/context7-mcp"]
     },
     "git": {
@@ -45,7 +43,7 @@
       "args": ["mcp-server-git"]
     },
     "playwright": {
-      "command": "npx",
+      "command": "pnpx",
       "args": ["@playwright/mcp@latest"]
     }
   }
