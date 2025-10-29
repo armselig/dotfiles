@@ -1,6 +1,4 @@
-# Mandatory file for AI agentsGENT
-
-This file follows the [`AGENTS.md` specs](https://agents.md/).
+# Mandatory file for AI agents
 
 ## CRITICAL SECURITY & QUALITY RULES
 
@@ -146,3 +144,20 @@ If you're unsure about ANY aspect of a request:
 4. Only proceed when 100% certain.
 
 Remember: It's better to ask for clarification than to make assumptions that could break everything.
+
+## DOCUMENTATION
+
+- Prefer [`AGENTS.md` files](https://agents.md) over `GEMINI.md`. Create `AGENTS.md` when running `/init`.
+- When creating an `AGENTS.md` file, always include this text at the top of the file:
+  ```markdown
+  <!--
+      This file is for AI agents. It provides instructions and guidelines for interacting with this project.
+      For more information, see https://agents.md/
+  -->
+  ```
+- Proactively suggest updates to documentation files after major changes.
+
+## DEVLOPMENT WORKFLOW
+
+- The dev server is in the user's control **ONLY**. **NEVER** attempt to (re-)start, stop etc. on your own.
+- You may ask the user to take action regarding the dev server on your behalf at any time, e.g. to start/stop the server, copy&paste log messages etc.

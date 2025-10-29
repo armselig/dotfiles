@@ -4,7 +4,7 @@ if vim.g.vscode then
 	local current_dir = vim.fn.expand("<sfile>:p:h")
 	vim.opt.rtp:prepend(current_dir)
 
-	require("vsc-nvim.lazy")
+	-- require("vsc-nvim.lazy")
 	require("default.options")
 	require("vsc-nvim.keys")
 else
