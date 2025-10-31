@@ -1,0 +1,51 @@
+name: Local Config
+version: 1.0.0
+schema: v1
+models:
+  - name: Qwen3-Coder 30b
+    provider: ollama
+    model: qwen3-coder:30b
+    roles:
+      - apply
+      - chat
+      - edit
+    capabilities:
+      - tool_use
+  - name: Qwen2.5-Coder 1.5B
+    provider: ollama
+    model: qwen2.5-coder:1.5b-base
+    roles:
+      - autocomplete
+  - name: Nomic Embed
+    provider: ollama
+    model: nomic-embed-text:latest
+    roles:
+      - embed
+  - name: Qwen3 Re-Ranker
+    provider: ollama
+    model: dengcao/Qwen3-Reranker-8B:Q4_K_M
+    roles:
+      - rerank
+  - name: Autodetect
+    provider: ollama
+    model: AUTODETECT
+mcpServers:
+  - name: Seqential Thinking
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-sequential-thinking"
+  - name: Memory
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-memory"
+  - name: Context7
+    command: npx
+    args:
+      - -y
+      - "@upstash/context7-mcp"
+  - name: Git
+    command: uvx
+    args:
+      - "mcp-server-git"

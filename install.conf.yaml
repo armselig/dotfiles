@@ -52,4 +52,4 @@
       glob: true
       path: gemini/*
       create: true
-
+    ~/.continue/config.yaml: continue/config.yaml
