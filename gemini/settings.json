@@ -14,11 +14,6 @@
       "selectedType": "oauth-personal"
     }
   },
-  "model": {
-    "chatCompression": {
-      "contextPercentageThreshold": 0.6
-    }
-  },
   "context": {
     "fileName": [
       "AGENTS.md",
@@ -58,4 +53,3 @@
     "hasSeenNudge": true
   }
 }
-
