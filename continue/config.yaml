@@ -2,6 +2,17 @@ name: Local Config
 version: 1.0.0
 schema: v1
 models:
+  - name: devstral
+    provider: ollama
+    model: devstral
+    roles:
+      - chat
+      - edit
+      - apply
+    capabilities:
+      - tool_use
+    defaultCompletionOptions:
+      contextLength: 128000
   - name: Qwen3-Coder 30b
     provider: ollama
     model: qwen3-coder:30b

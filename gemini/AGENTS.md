@@ -70,3 +70,4 @@ If you're unsure about ANY aspect of a request:
 - Before implementing any changes, always explain WHAT is going to be done and WHY it is being done. Always wait for user approval before proceeding with implementation. This is a general rule that applies to all projects and sessions.
 - Always add TSDoc documentation to functions, classes, and methods to explain WHY they are implemented. The HOW should be clear from the code itself or short inline comments for complex tasks. Always use TypeScript types/interfaces where applicable.
 - When the project's package manager is pnpm, the user prefers to use `pnpm dlx` instead of `npx` for running commands from packages not installed in the project.
+- Tampermonkey scripts need to have the suffix '.user.js'.

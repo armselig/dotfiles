@@ -20,7 +20,12 @@
     }
   },
   "context": {
-    "fileName": ["AGENTS.md", "GEMINI.md", ".vscode/copilot-instructions.md"]
+    "fileName": [
+      "AGENTS.md",
+      "GEMINI.md",
+      "CLAUDE.md",
+      ".vscode/copilot-instructions.md"
+    ]
   },
   "mcpServers": {
     "sequential-thinking": {
@@ -47,5 +52,10 @@
       "command": "npx",
       "args": ["mcp-remote", "https://gitmcp.io/docs"]
     }
+  },
+  "ide": {
+    "enabled": true,
+    "hasSeenNudge": true
   }
 }
+

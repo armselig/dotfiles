@@ -20,6 +20,9 @@ set -gx OSTYPE "$(uname)"
 set -Ux EDITOR "vi" # Or "vim"
 # set -Ux VISUAL "code" # Uncomment if you use VSCode as your primary graphical editor
 set -Ux TERM alacritty # Your terminal emulator
+# ollama
+set -Ux OLLAMA_API_BASE http://127.0.0.1:11434
+set -Ux OLLAMA_CONTEXT_LENGTH 8192 ollama serve
 
 # MANPAGER setup with bat/batcat fallback
 if type -q bat || type -q batcat
