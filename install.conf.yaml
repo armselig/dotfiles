@@ -53,3 +53,4 @@
       path: gemini/*
       create: true
     ~/.continue/config.yaml: continue/config.yaml
+    ~/.claude.json: claude/claude.json
