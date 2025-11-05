@@ -1,26 +1,7 @@
 {
-  "general": {
-    "vimMode": true,
-    "preferredEditor": "vscode"
-  },
-  "ui": {
-    "theme": "Default"
-  },
-  "privacy": {
-    "usageStatisticsEnabled": true
-  },
-  "security": {
-    "auth": {
-      "selectedType": "oauth-personal"
-    }
-  },
-  "context": {
-    "fileName": [
-      "AGENTS.md",
-      "GEMINI.md",
-      "CLAUDE.md",
-      ".vscode/copilot-instructions.md"
-    ]
+  "ide": {
+    "enabled": true,
+    "hasSeenNudge": true
   },
   "mcpServers": {
     "sequential-thinking": {
@@ -48,8 +29,27 @@
       "args": ["mcp-remote", "https://gitmcp.io/docs"]
     }
   },
-  "ide": {
-    "enabled": true,
-    "hasSeenNudge": true
+  "general": {
+    "vimMode": false,
+    "preferredEditor": "vscode"
+  },
+  "ui": {
+    "theme": "Default"
+  },
+  "privacy": {
+    "usageStatisticsEnabled": true
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "GEMINI.md",
+      "CLAUDE.md",
+      ".vscode/copilot-instructions.md"
+    ]
   }
 }
