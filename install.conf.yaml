@@ -54,3 +54,4 @@
       create: true
     ~/.continue/config.yaml: continue/config.yaml
     ~/.claude.json: claude/claude.json
+    ~/.claude/CLAUDE.md: claude/CLAUDE.md

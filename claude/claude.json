@@ -1,15 +1,15 @@
 {
-  "numStartups": 4,
+  "numStartups": 12,
   "installMethod": "unknown",
   "autoUpdates": true,
   "tipsHistory": {
-    "new-user-warmup": 1,
-    "plan-mode-for-complex-tasks": 1,
-    "terminal-setup": 1,
+    "new-user-warmup": 9,
+    "plan-mode-for-complex-tasks": 8,
+    "terminal-setup": 12,
     "memory-command": 1,
     "theme-command": 2,
     "status-line": 2,
-    "prompt-queue": 2,
+    "prompt-queue": 8,
     "shift-enter-setup": 3,
     "enter-to-steer-in-relatime": 3,
     "todo-list": 3,
@@ -22,7 +22,11 @@
     "shift-tab": 4,
     "image-paste": 4,
     "tab-toggle-thinking": 4,
-    "ultrathink-keyword": 4
+    "ultrathink-keyword": 4,
+    "custom-agents": 8,
+    "ide-upsell-external-terminal": 9,
+    "permissions": 12,
+    "custom-commands": 12
   },
   "cachedStatsigGates": {
     "tengu_migrate_ignore_patterns": false,
@@ -90,7 +94,7 @@
       "disabledMcpjsonServers": [],
       "hasTrustDialogAccepted": true,
       "ignorePatterns": [],
-      "projectOnboardingSeenCount": 2,
+      "projectOnboardingSeenCount": 5,
       "hasClaudeMdExternalIncludesApproved": false,
       "hasClaudeMdExternalIncludesWarningShown": false,
       "exampleFiles": [
@@ -102,17 +106,17 @@
       ],
       "exampleFilesGeneratedAt": 1762116283608,
       "lastTotalWebSearchRequests": 0,
-      "lastCost": 0.10727500000000001,
-      "lastAPIDuration": 176979,
-      "lastToolDuration": 26709,
-      "lastDuration": 438494,
-      "lastLinesAdded": 4,
-      "lastLinesRemoved": 4,
+      "lastCost": 0.3982549999999999,
+      "lastAPIDuration": 464471,
+      "lastToolDuration": 55616,
+      "lastDuration": 1742888,
+      "lastLinesAdded": 608,
+      "lastLinesRemoved": 62,
       "lastTotalInputTokens": 0,
-      "lastTotalOutputTokens": 7249,
+      "lastTotalOutputTokens": 26645,
       "lastTotalCacheCreationInputTokens": 0,
       "lastTotalCacheReadInputTokens": 0,
-      "lastSessionId": "605d98ae-af2d-4c95-a5ea-eaf313d4d4b9"
+      "lastSessionId": "cf8b3cc7-163d-4cfc-806b-fd3df76c9155"
     },
     "/Users/henneuma/dotfiles": {
       "allowedTools": [],
@@ -145,6 +149,127 @@
       "lastTotalCacheReadInputTokens": 0,
       "lastTotalWebSearchRequests": 0,
       "lastSessionId": "5dd439a6-ad85-419b-8237-5cd95f8bff87"
+    },
+    "/Users/henneuma/src/bkg": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 4,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "I don't have any files listed in your request to analyze. Please provide:",
+        "",
+        "1. A list of files modified by the user (with modification counts)",
+        "2. A list of files modified by other users (with modification counts)",
+        "",
+        "Once you provide this data, I'll return exactly five filenames that represent core application logic."
+      ],
+      "exampleFilesGeneratedAt": 1762164715573,
+      "lastTotalWebSearchRequests": 0,
+      "lastCost": 0.17958499999999997,
+      "lastAPIDuration": 199162,
+      "lastToolDuration": 414,
+      "lastDuration": 335533,
+      "lastLinesAdded": 1147,
+      "lastLinesRemoved": 0,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 12067,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastSessionId": "d3b2fc6c-979e-4b26-85cf-6d201826a217"
+    },
+    "/Users/henneuma/src/_mailings/sanofi-mailings": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 2,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "gulpfile.babel.js",
+        "TheFooter.js",
+        "script.js",
+        "Hero.js",
+        "example.mjml"
+      ],
+      "exampleFilesGeneratedAt": 1762175578612,
+      "lastCost": 0.08947000000000001,
+      "lastAPIDuration": 112046,
+      "lastToolDuration": 69,
+      "lastDuration": 5510887,
+      "lastLinesAdded": 32,
+      "lastLinesRemoved": 10,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 6068,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "791716a6-5951-4a7f-b0f3-177dd44566bb"
+    },
+    "/Users/henneuma/src/_mailings/pfizer-mailings": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 1,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "250701_lorviqua_biermann.mjml",
+        "250620_elrexfio_arzt-wirtschaft.mjml",
+        "251009_prevenar-infant_doccheck.mjml",
+        "250625_prevenar-infant_medical-tribune.mjml",
+        "Footer.js"
+      ],
+      "exampleFilesGeneratedAt": 1762251834281,
+      "lastCost": 0.12132499999999999,
+      "lastAPIDuration": 201910,
+      "lastToolDuration": 15902,
+      "lastDuration": 9809961,
+      "lastLinesAdded": 129,
+      "lastLinesRemoved": 66,
+      "lastTotalInputTokens": 0,
+      "lastTotalOutputTokens": 8181,
+      "lastTotalCacheCreationInputTokens": 0,
+      "lastTotalCacheReadInputTokens": 0,
+      "lastTotalWebSearchRequests": 0,
+      "lastSessionId": "ae90dccf-85d1-44c4-a415-3666fcaf51d3"
+    },
+    "/Users/henneuma/src/_asl/tampermonkey": {
+      "allowedTools": [],
+      "mcpContextUris": [],
+      "mcpServers": {},
+      "enabledMcpjsonServers": [],
+      "disabledMcpjsonServers": [],
+      "hasTrustDialogAccepted": true,
+      "ignorePatterns": [],
+      "projectOnboardingSeenCount": 2,
+      "hasClaudeMdExternalIncludesApproved": false,
+      "hasClaudeMdExternalIncludesWarningShown": false,
+      "exampleFiles": [
+        "I don't have enough information to complete this task. The provided git history shows only 4 files total (2 modified by user, 2 by other users), and they are both documentation/configuration files (AGENTS.md and .gitignore), not core application logic files.",
+        "",
+        "To identify five frequently modified core application logic files, I would need:",
+        "- A larger dataset showing actual application source code files",
+        "- Files with meaningful modification counts (ideally more than 1)",
+        "- A mix of implementation files across different modules/folders",
+        "",
+        "Please provide a more comprehensive git history with actual application files."
+      ],
+      "exampleFilesGeneratedAt": 1762334035520,
+      "lastTotalWebSearchRequests": 0
     }
   },
   "hasIdeOnboardingBeenShown": {
@@ -212,8 +337,11 @@
     "25c19cb4-6aa4-4316-a20e-64c80f914c83": {
       "hasAccess": false,
       "hasAccessNotAsDefault": false,
-      "timestamp": 1762116282568
+      "timestamp": 1762332988299
     }
   },
-  "fallbackAvailableWarningThreshold": 0.5
+  "fallbackAvailableWarningThreshold": 0.5,
+  "feedbackSurveyState": {
+    "lastShownTime": 1762252582589
+  }
 }
