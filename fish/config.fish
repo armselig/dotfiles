@@ -22,7 +22,7 @@ set -Ux EDITOR "vi" # Or "vim"
 set -Ux TERM alacritty # Your terminal emulator
 # ollama
 set -Ux OLLAMA_API_BASE http://127.0.0.1:11434
-set -Ux OLLAMA_CONTEXT_LENGTH 8192 ollama serve
+set -Ux OLLAMA_CONTEXT_LENGTH 8192
 
 # MANPAGER setup with bat/batcat fallback
 if type -q bat || type -q batcat
@@ -141,3 +141,8 @@ end
 if type -q bat || type -q batcat
     alias cat="bat"
 end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/henneuma/.lmstudio/bin
+# End of LM Studio CLI section
+

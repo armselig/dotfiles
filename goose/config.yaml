@@ -1,0 +1,112 @@
+# GOOSE_PROVIDER: claude-code
+# GOOSE_MODEL: claude-4.5-sonnet
+
+# GOOSE_PROVIDER: gemini-cli
+# GOOSE_MODEL: gemini-2.5-flash
+
+# kinda works, but slow. can read files via extensions?
+# but then again not really
+# GOOSE_PROVIDER: ollama
+# GOOSE_MODEL: michaelneale/deepseek-r1-goose:latest
+
+# sloooow. does not know what to do.
+# GOOSE_PROVIDER: ollama
+# GOOSE_MODEL: qwen2.5:32b-instruct
+
+# it is all a mess
+# GOOSE_PROVIDER: ollama
+# GOOSE_MODEL: hhao/qwen2.5-coder-tools:7b
+
+GOOSE_PROVIDER: ollama
+GOOSE_MODEL: qwen3-coder:30b
+
+# does not support tools
+# GOOSE_PROVIDER: ollama
+# GOOSE_MODEL: llama3:instruct
+
+GOOSE_LEAD_PROVIDER: claude-code
+GOOSE_LEAD_MODEL: claude-4.5-sonnet
+GOOSE_PLANNER_PROVIDER: gemini-cli
+GOOSE_PLANNER_MODEL: gemini-2.5-pro
+
+GOOSE_CLI_SHOW_COST: true
+
+# x-advanced-models:
+#   - provider: ollamaa
+#     model: michaelneale/deepseek-r1-goose:latest
+#     role: deep-thinker
+# - provider: anthropic
+#   model: claude-4.5-sonnet
+#   role: debugger
+# - provider: google
+#   model: gemini-2.5-pro
+#   role: reviewer
+# - provider: ollama
+#   model: qwen3-coder:30b
+#   role: coder
+
+extensions:
+  developer:
+    enabled: true
+    type: builtin
+    name: developer
+    description: Code editing and shell access
+    display_name: Developer Tools
+    timeout: 300
+    bundled: true
+    available_tools: []
+  chatrecall:
+    enabled: true
+    type: platform
+    name: chatrecall
+    description: Search past conversations and load session summaries for contextual memory
+    bundled: true
+    available_tools: []
+  extensionmanager:
+    enabled: true
+    type: platform
+    name: Extension Manager
+    description: Enable extension management tools for discovering, enabling, and disabling extensions
+    bundled: true
+    available_tools: []
+  todo:
+    enabled: true
+    type: platform
+    name: todo
+    description: Enable a todo list for Goose so it can keep track of what it is doing
+    bundled: true
+    available_tools: []
+  computercontroller:
+    enabled: true
+    type: builtin
+    name: computercontroller
+    description: controls for webscraping, file caching, and automations
+    display_name: Computer Controller
+    timeout: 300
+    bundled: true
+    available_tools: []
+  memory:
+    enabled: true
+    type: builtin
+    name: memory
+    description: Tools to save and retrieve durable memories
+    display_name: Memory
+    timeout: 300
+    bundled: true
+    available_tools: []
+  filesystem:
+    enabled: true
+    type: stdio
+    name: filesystem
+    description: file access
+    cmd: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-filesystem"
+      - /Users/henneuma/src
+      - /Users/henneuma/dotfiles
+    envs: {}
+    env_keys: []
+    timeout: 300
+    bundled: null
+    available_tools: []

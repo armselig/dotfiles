@@ -2,41 +2,16 @@ name: Local Config
 version: 1.0.0
 schema: v1
 models:
-  - name: devstral
-    provider: ollama
-    model: devstral
-    roles:
-      - chat
-      - edit
-      - apply
-    capabilities:
-      - tool_use
+  - name: lms/llama-3-8b-instruct-1048k
+    provider: lmstudio
+    model: llama-3-8b-instruct-1048k
+    apiBase: http://localhost:12345/v1
     defaultCompletionOptions:
-      contextLength: 128000
-  - name: Qwen3-Coder 30b
-    provider: ollama
-    model: qwen3-coder:30b
-    roles:
-      - apply
-      - chat
-      - edit
-    capabilities:
-      - tool_use
-  - name: Qwen2.5-Coder 1.5B
-    provider: ollama
-    model: qwen2.5-coder:1.5b-base
-    roles:
-      - autocomplete
-  - name: Nomic Embed
-    provider: ollama
-    model: nomic-embed-text:latest
-    roles:
-      - embed
-  - name: Qwen3 Re-Ranker
-    provider: ollama
-    model: dengcao/Qwen3-Reranker-8B:Q4_K_M
-    roles:
-      - rerank
+      contextLength: 1048576
+  - name: lms/qwen3-coder-30b-a3b-instruct-mlx
+    provider: lmstudio
+    model: qwen3-coder-30b-a3b-instruct-mlx
+    apiBase: http://localhost:12345/v1
   - name: Autodetect
     provider: ollama
     model: AUTODETECT

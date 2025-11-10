@@ -123,3 +123,8 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 . "$HOME/.local/bin/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/henneuma/.lmstudio/bin"
+# End of LM Studio CLI section
+
