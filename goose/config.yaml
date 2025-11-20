@@ -1,8 +1,8 @@
 # GOOSE_PROVIDER: claude-code
 # GOOSE_MODEL: claude-4.5-sonnet
 
-# GOOSE_PROVIDER: gemini-cli
-# GOOSE_MODEL: gemini-2.5-flash
+GOOSE_PROVIDER: gemini-cli
+GOOSE_MODEL: gemini-2.5-flash
 
 # kinda works, but slow. can read files via extensions?
 # but then again not really
@@ -17,8 +17,8 @@
 # GOOSE_PROVIDER: ollama
 # GOOSE_MODEL: hhao/qwen2.5-coder-tools:7b
 
-GOOSE_PROVIDER: ollama
-GOOSE_MODEL: qwen3-coder:30b
+# GOOSE_PROVIDER: ollama
+# GOOSE_MODEL: qwen3-coder:30b
 
 # does not support tools
 # GOOSE_PROVIDER: ollama
@@ -85,15 +85,6 @@ extensions:
     timeout: 300
     bundled: true
     available_tools: []
-  memory:
-    enabled: true
-    type: builtin
-    name: memory
-    description: Tools to save and retrieve durable memories
-    display_name: Memory
-    timeout: 300
-    bundled: true
-    available_tools: []
   filesystem:
     enabled: true
     type: stdio
@@ -105,6 +96,62 @@ extensions:
       - "@modelcontextprotocol/server-filesystem"
       - /Users/henneuma/src
       - /Users/henneuma/dotfiles
+    envs: {}
+    env_keys: []
+    timeout: 300
+    bundled: null
+    available_tools: []
+  context7:
+    enabled: true
+    type: stdio
+    name: context7
+    description: docs
+    cmd: npx
+    args:
+      - -y
+      - "@upstash/context7-mcp"
+    envs: {}
+    env_keys: []
+    timeout: 300
+    bundled: null
+    available_tools: []
+  gitmcp:
+    enabled: true
+    type: stdio
+    name: gitmcp
+    description: github docs
+    cmd: npx
+    args:
+      - -y
+      - mcp-remote
+      - https://gitmcp.io/docs
+    envs: {}
+    env_keys: []
+    timeout: 300
+    bundled: null
+    available_tools: []
+  knowledgegraph:
+    enabled: true
+    type: stdio
+    name: knowledge graph
+    description: memory
+    cmd: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-memory"
+    envs: {}
+    env_keys: []
+    timeout: 300
+    bundled: null
+    available_tools: []
+  vscode:
+    enabled: true
+    type: stdio
+    name: vscode
+    description: vscode
+    cmd: npx
+    args:
+      - vscode-mcp-server
     envs: {}
     env_keys: []
     timeout: 300

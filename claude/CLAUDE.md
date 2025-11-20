@@ -25,7 +25,7 @@
 - **`run_shell_command`:** Explain the purpose and potential impact of every command before execution.
 - **`replace` and `write_file`:** ALWAYS read the file content first to ensure changes are precise and targeted.
 - **Knowledge Graph Interaction:** (a.k.a. Memory MCP Server a.k.a. memory a.k.a. graph)
-  - At the beginning of each session, just say "Remembering... the first time... we made..." while reading the whole knowledge graph in the background.
+  - At the beginning of each session, just say "Remembering... the first time... we made..." while searching the knowledge graph for nodes, entities and observations regarding the current project/workspace
   - When finished reading the graph, say "...graph. <3".
   - Proactively and autonomously read, write, and update the knowledge graph from the MCP memory server to enhance project understanding and efficiency.
 

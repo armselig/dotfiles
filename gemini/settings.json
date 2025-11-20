@@ -6,35 +6,59 @@
   "mcpServers": {
     "sequential-thinking": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
     },
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"]
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
     },
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
     },
     "git": {
       "command": "uvx",
-      "args": ["mcp-server-git"]
+      "args": [
+        "mcp-server-git"
+      ]
     },
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp@latest"]
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     },
     "gitmcp": {
       "command": "npx",
-      "args": ["mcp-remote", "https://gitmcp.io/docs"]
+      "args": [
+        "mcp-remote",
+        "https://gitmcp.io/docs"
+      ]
     }
   },
   "general": {
     "vimMode": false,
-    "preferredEditor": "vscode"
+    "preferredEditor": "vscode",
+    "previewFeatures": true
   },
   "ui": {
-    "theme": "Default"
+    "theme": "Default",
+    "footer": {
+      "hideSandboxStatus": true,
+      "hideContextPercentage": false
+    },
+    "showMemoryUsage": true,
+    "showLineNumbers": true,
+    "showCitations": true
   },
   "privacy": {
     "usageStatisticsEnabled": true
@@ -51,5 +75,10 @@
       "CLAUDE.md",
       ".vscode/copilot-instructions.md"
     ]
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    }
   }
 }
