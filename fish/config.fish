@@ -118,6 +118,9 @@ abbr grs "git restore --staged"
 abbr gf "git fetch"
 abbr ga "git add"
 abbr gs "git status"
+abbr gwl "git worktree list"
+abbr gwa "git worktree add"
+abbr gwr "git worktree remove"
 
 # System aliases
 abbr susp "systemctl suspend"
