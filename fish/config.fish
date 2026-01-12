@@ -8,8 +8,8 @@ end
 # XDG Base Directory Specification
 set -q XDG_CONFIG_HOME || set -U XDG_CONFIG_HOME "$HOME/.config"
 
-# Add common binaries to path (universal variable for persistence)
-set -U fish_add_path /usr/local/bin ~/.local/bin
+# Add common binaries to path
+fish_add_path /usr/local/bin ~/.local/bin
 
 # Fish shell specific settings (universal variables)
 set -U fish_greeting # No greeting
@@ -17,24 +17,27 @@ set -U fish_key_bindings fish_vi_key_bindings
 
 # Exported environment variables
 set -gx OSTYPE "$(uname)"
-set -Ux EDITOR "vi" # Or "vim"
-# set -Ux VISUAL "code" # Uncomment if you use VSCode as your primary graphical editor
-set -Ux TERM alacritty # Your terminal emulator
+set -gx EDITOR "vi" # Or "vim"
+# set -gx VISUAL "code" # Uncomment if you use VSCode as your primary graphical editor
+# Only set TERM outside of tmux (tmux manages its own TERM)
+if not set -q TMUX
+    set -gx TERM alacritty
+end
 # ollama
-set -Ux OLLAMA_API_BASE http://127.0.0.1:11434
-set -Ux OLLAMA_CONTEXT_LENGTH 8192
+set -gx OLLAMA_API_BASE http://127.0.0.1:11434
+set -gx OLLAMA_CONTEXT_LENGTH 16384
 
 # MANPAGER setup with bat/batcat fallback
 if type -q bat || type -q batcat
-    set -Ux MANPAGER "sh -c 'col -bx | (bat -l man -p --paging=always || batcat -l man -p --paging=always || cat)'"
-    set -Ux BAT_THEME "Catppuccin Mocha" # Set bat theme globally
+    set -gx MANPAGER "sh -c 'col -bx | (bat -l man -p --paging=always || batcat -l man -p --paging=always || cat)'"
+    set -gx BAT_THEME "Catppuccin Mocha" # Set bat theme globally
 else
-    set -Ux MANPAGER "less -R" # Fallback
+    set -gx MANPAGER "less -R" # Fallback
 end
 
 # Optional: LS_COLORS with vivid (if not using lsd's built-in colors)
 # if type -q vivid
-#     set -Ux LS_COLORS (vivid generate catppuccin-mocha)
+#     set -gx LS_COLORS (vivid generate catppuccin-mocha)
 # end
 
 # --- Plugin/Tool Integrations ---
@@ -51,7 +54,10 @@ function nvm
         return 1
     end
 end
-nvm use default --silent # Load default Node.js version on startup
+# Only load NVM in interactive shells to avoid issues with tmux
+if status is-interactive
+    nvm use default --silent # Load default Node.js version on startup
+end
 
 # pnpm setup
 set -gx PNPM_HOME "/Users/henneuma/Library/pnpm" # Adjust if pnpm is installed elsewhere
@@ -70,9 +76,9 @@ if type -q fzf
 end
 
 # budimanjojo/tmux.fish configuration
-set -Ux fish_tmux_autostart false
-set -Ux fish_tmux_config "$XDG_CONFIG_HOME/tmux/tmux.conf"
-set -Ux fish_tmux_default_session_name "asl"
+set -g fish_tmux_autostart false
+set -g fish_tmux_config "$XDG_CONFIG_HOME/tmux/tmux.conf"
+set -g fish_tmux_default_session_name "asl"
 
 # --- Aliases (Abbreviations) ---
 
@@ -146,3 +152,10 @@ end
 set -gx PATH $PATH /Users/henneuma/.lmstudio/bin
 # End of LM Studio CLI section
 
+
+# Added by Antigravity
+fish_add_path /Users/henneuma/.antigravity/antigravity/bin
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
