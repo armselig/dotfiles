@@ -50,13 +50,33 @@ function nvm
     if test -f $nvm_script
         bass source $nvm_script --no-use ';' nvm $argv
     else
-        echo "Error: NVM script not found at $nvm_script"
+        echo "Error: NVM script not found at $nvm_script" >&2
         return 1
     end
 end
-# Only load NVM in interactive shells to avoid issues with tmux
+
+# Auto-switch node version on directory change based on .nvmrc
+function __nvm_auto_use --on-variable PWD --description "Auto-switch node version based on .nvmrc"
+    if test -f .nvmrc
+        set -l node_ver (string trim < .nvmrc)
+        if not nvm use $node_ver --silent 2>/dev/null
+            echo "Installing node $node_ver from .nvmrc..."
+            nvm install $node_ver
+        end
+    end
+end
+
+# Load NVM in interactive shells
+# Priority: .nvmrc > default > lts
 if status is-interactive
-    nvm use default --silent # Load default Node.js version on startup
+    if test -f .nvmrc
+        set -l node_ver (string trim < .nvmrc)
+        if not nvm use $node_ver --silent 2>/dev/null
+            nvm install $node_ver
+        end
+    else
+        nvm use default --silent 2>/dev/null; or nvm use --lts --silent 2>/dev/null
+    end
 end
 
 # pnpm setup
