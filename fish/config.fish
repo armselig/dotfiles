@@ -106,6 +106,9 @@ set -g fish_tmux_default_session_name "asl"
 abbr l "ls"
 abbr ll "ls -l"
 abbr lal "ls -al"
+abbr .. "cd .."
+abbr ... "cd ../.."
+abbr .... "cd ../../.."
 
 # Tmux aliases
 abbr tasl "tmux new -A -s asl"
