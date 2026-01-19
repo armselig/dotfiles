@@ -58,3 +58,4 @@
     ~/.config/goose:
       glob: true
       path: goose/*
+    ~/.config/opencode/opencode.json: opencode/opencode.json
