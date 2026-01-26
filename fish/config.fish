@@ -174,6 +174,10 @@ if type -q bat || type -q batcat
     alias cat="bat"
 end
 
+if type -q ocrmypdf
+    abbr ocr "ocrmypdf -l ger --deskew --rotate-pages --clean"
+end
+
 # Added by LM Studio CLI (lms)
 set -gx PATH $PATH /Users/henneuma/.lmstudio/bin
 # End of LM Studio CLI section
