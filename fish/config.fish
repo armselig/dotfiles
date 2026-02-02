@@ -25,7 +25,7 @@ if not set -q TMUX
 end
 # ollama
 set -gx OLLAMA_API_BASE http://127.0.0.1:11434
-set -gx OLLAMA_CONTEXT_LENGTH 16384
+set -gx OLLAMA_CONTEXT_LENGTH 32768
 
 # MANPAGER setup with bat/batcat fallback
 if type -q bat || type -q batcat
