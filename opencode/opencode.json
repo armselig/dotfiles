@@ -1,46 +1,52 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama (local)",
-      "options": {
-        "baseURL": "http://localhost:11434/v1"
-      },
-      "models": {
-        "qwen3-coder:30b": {
-          "name": "QWEN3 Coder (30b)"
-        },
-        "hhao/qwen2.5-coder-tools:7b": {
-          "name": "QWEN 2.5 Coder Tools (7b)"
-        }
-      }
-    }
-  },
   "mcp": {
+    "context7": {
+      "command": ["npx", "-y", "@upstash/context7-mcp"],
+      "enabled": true,
+      "type": "local"
+    },
+    "git": {
+      "command": ["uvx", "mcp-server-git"],
+      "enabled": true,
+      "type": "local"
+    },
+    "playwright": {
+      "command": ["npx", "-y", "@playwright/mcp@latest"],
+      "enabled": true,
+      "type": "local"
+    },
     "sequential-thinking": {
-      "type": "local",
       "command": [
         "npx",
         "-y",
         "@modelcontextprotocol/server-sequential-thinking"
       ],
-      "enabled": true
-    },
-    "context7": {
-      "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"],
-      "enabled": true
-    },
-    "git": {
-      "type": "local",
-      "command": ["uvx", "mcp-server-git"],
-      "enabled": true
-    },
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp@latest"],
-      "enabled": true
+      "enabled": true,
+      "type": "local"
+    }
+  },
+  "provider": {
+    "ollama": {
+      "models": {
+        "qwen3-coder-30b-32k": {
+          "name": "QWEN3 Coder (30b, 32k)"
+        },
+        "qwen3-coder-30b-64k": {
+          "name": "QWEN3 Coder (30b, 64k)"
+        },
+        "deepseek-r1-32k": {
+          "name": "Deepseek R1 Goose (32k)"
+        },
+        "qwen2_5-coder-7b-32k": {
+          "name": "QWEN2.5 Coder (7b, 32k)"
+        }
+      },
+      "name": "Ollama (local)",
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      }
     }
   }
 }
