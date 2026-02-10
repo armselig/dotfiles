@@ -2,8 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "anthropic/claude-opus-4-6",
-      "variant": "max",
+      "model": "anthropic/claude-sonnet-4-5",
       "enabled": true
     },
     "oracle": {
@@ -12,7 +11,7 @@
       "enabled": true
     },
     "librarian": {
-      "model": "anthropic/claude-sonnet-4-5",
+      "model": "ollama/qwen3-coder-30b-64k",
       "enabled": true
     },
     "explore": {
@@ -24,16 +23,16 @@
       "enabled": true
     },
     "prometheus": {
-      "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "model": "google/gemini-3-pro",
+      "variant": "high"
     },
     "metis": {
-      "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "model": "google/gemini-3-pro",
+      "variant": "high"
     },
     "momus": {
-      "model": "anthropic/claude-opus-4-6",
-      "variant": "max"
+      "model": "google/gemini-3-pro",
+      "variant": "high"
     },
     "atlas": {
       "model": "anthropic/claude-sonnet-4-5"
@@ -52,10 +51,10 @@
       "variant": "high"
     },
     "quick": {
-      "model": "anthropic/claude-haiku-4-5"
+      "model": "ollama/qwen3-coder-30b-64k"
     },
     "unspecified-low": {
-      "model": "anthropic/claude-sonnet-4-5"
+      "model": "ollama/qwen3-coder-30b-64k"
     },
     "unspecified-high": {
       "model": "anthropic/claude-sonnet-4-5"
