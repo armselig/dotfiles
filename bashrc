@@ -128,3 +128,4 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export PATH="$PATH:/Users/henneuma/.lmstudio/bin"
 # End of LM Studio CLI section
 
+export PATH=~/bin:$PATH
