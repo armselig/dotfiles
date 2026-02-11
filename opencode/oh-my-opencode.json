@@ -1,5 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "background_task": {
+    "staleTimeoutMs": 300000,
+    "defaultConcurrency": 5
+  },
   "agents": {
     "sisyphus": {
       "model": "anthropic/claude-sonnet-4-5",
@@ -11,7 +15,7 @@
       "enabled": true
     },
     "librarian": {
-      "model": "ollama/qwen3-coder-30b-64k",
+      "model": "google/gemini-3-flash",
       "enabled": true
     },
     "explore": {
@@ -51,10 +55,10 @@
       "variant": "high"
     },
     "quick": {
-      "model": "ollama/qwen3-coder-30b-64k"
+      "model": "google/gemini-3-flash"
     },
     "unspecified-low": {
-      "model": "ollama/qwen3-coder-30b-64k"
+      "model": "google/gemini-3-flash"
     },
     "unspecified-high": {
       "model": "anthropic/claude-sonnet-4-5"
