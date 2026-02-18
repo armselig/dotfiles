@@ -29,21 +29,13 @@
   "provider": {
     "ollama": {
       "models": {
-        "qwen3-coder-30b-32k": {
-          "name": "QWEN3 Coder (30b, 32k)"
-        },
         "qwen3-coder-30b-64k": {
           "name": "QWEN3 Coder (30b, 64k)"
-        },
-        "deepseek-r1-32k": {
-          "name": "Deepseek R1 Goose (32k)"
         },
         "qwen2_5-coder-7b-32k": {
           "name": "QWEN2.5 Coder (7b, 32k)"
         },
-        "qwen3-coder-next:q4_K_M": {
-          "name": "QWEN3 Coder Next (Q4)"
-        }
+        "llama3_1-8b-64k": { "name": "llama3.1:8b-64k" }
       },
       "name": "Ollama (local)",
       "npm": "@ai-sdk/openai-compatible",
@@ -158,7 +150,7 @@
       }
     }
   },
-  "plugin": ["oh-my-opencode@latest", "opencode-antigravity-auth@1.4.6"],
+  "plugin": ["oh-my-opencode@latest", "opencode-antigravity-auth@1.5.1"],
   "formatter": {
     "prettier": {
       "command": ["npx", "-y", "prettier"],
