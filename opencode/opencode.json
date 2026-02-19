@@ -150,7 +150,7 @@
       }
     }
   },
-  "plugin": ["oh-my-opencode@latest", "opencode-antigravity-auth@1.5.1"],
+  "plugin": ["oh-my-opencode@latest", "opencode-antigravity-auth@1.5.2"],
   "formatter": {
     "prettier": {
       "command": ["npx", "-y", "prettier"],

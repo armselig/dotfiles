@@ -6,16 +6,16 @@
   },
   "agents": {
     "sisyphus": {
-      "model": "anthropic/claude-sonnet-4-5",
+      "model": "anthropic/claude-sonnet-4-6",
       "enabled": true
     },
     "oracle": {
-      "model": "google/gemini-3-pro",
+      "model": "google/antigravity-gemini-3-pro",
       "variant": "high",
       "enabled": true
     },
     "librarian": {
-      "model": "google/gemini-3-flash",
+      "model": "google/antigravity-gemini-3-flash",
       "enabled": true
     },
     "explore": {
@@ -23,48 +23,47 @@
       "enabled": true
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash",
+      "model": "google/antigravity-gemini-3-flash",
       "enabled": true
     },
     "prometheus": {
-      "model": "google/gemini-3-pro",
+      "model": "google/antigravity-gemini-3-pro",
       "variant": "high"
     },
     "metis": {
-      "model": "google/gemini-3-pro",
+      "model": "google/antigravity-gemini-3-pro",
       "variant": "high"
     },
     "momus": {
-      "model": "google/gemini-3-pro",
+      "model": "google/antigravity-gemini-3-pro",
       "variant": "high"
     },
     "atlas": {
-      "model": "anthropic/claude-sonnet-4-5"
+      "model": "anthropic/claude-sonnet-4-6"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/gemini-3-pro"
+      "model": "google/antigravity-gemini-3-pro"
     },
     "ultrabrain": {
-      "model": "google/gemini-3-pro",
-      "variant": "high"
+      "model": "anthropic/claude-opus-4-6"
     },
     "artistry": {
-      "model": "google/gemini-3-pro",
+      "model": "google/antigravity-gemini-3-pro",
       "variant": "high"
     },
     "quick": {
-      "model": "google/gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash"
     },
     "unspecified-low": {
-      "model": "google/gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash"
     },
     "unspecified-high": {
-      "model": "anthropic/claude-sonnet-4-5"
+      "model": "anthropic/claude-opus-4-6"
     },
     "writing": {
-      "model": "google/gemini-3-flash"
+      "model": "google/antigravity-gemini-3-flash"
     }
   }
 }
