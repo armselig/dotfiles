@@ -1,18 +1,25 @@
 
+[general]
+import = [
+    "./catppuccin-mocha.toml"
+]
+
 [window]
 dimensions = { columns = 80, lines = 25 }
 padding = { x = 8, y = 8 }
-decorations = "Buttonless"
+decorations = "None"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
-size = 16
+size = 12
 
 # [keyboard]
 # option_as_alt = "Both"
 
-[general]
-import = [
-    "~/.config/alacritty/catppuccin-mocha.toml"
-]
+# [general]
 
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
