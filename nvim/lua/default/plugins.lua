@@ -182,40 +182,8 @@ require("bufferline").setup({
 require("todo-comments").setup()
 
 --- TREESITTER
--- TODO: version check
-require("nvim-treesitter.configs").setup({
-	-- highlight = {
-	-- 	enable = true,
-	-- 	additional_vim_regex_highlighting = false, -- should fix indentation of multiline comments
-	-- },
-	indent = { enable = true },
-	ensure_installed = {
-		"bash",
-		"css",
-		"diff",
-		"html",
-		"javascript",
-		"jsdoc",
-		"json",
-		"jsonc",
-		"lua",
-		"luadoc",
-		"luap",
-		"markdown",
-		"markdown_inline",
-		"printf",
-		"python",
-		"query",
-		"regex",
-		"toml",
-		"tsx",
-		"typescript",
-		"vim",
-		"vimdoc",
-		"xml",
-		"yaml",
-	},
-})
+-- v1.0+: nvim-treesitter.configs was removed; setup() only accepts install_dir
+require("nvim-treesitter").setup()
 
 --- CONFORM
 require("conform").setup({

@@ -38,13 +38,12 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Get the path to the Vue Language Server installed by Mason
+-- mason_registry.get_package() throws if the package name is unknown, so use pcall
 local vue_language_server_path
-local vue_ls_pkg = mason_registry.get_package("vue-language-server")
-if vue_ls_pkg and vue_ls_pkg.is_installed and vue_ls_pkg:is_installed() and vue_ls_pkg.get_install_path then
+local ok, vue_ls_pkg = pcall(mason_registry.get_package, "vue-language-server")
+if ok and vue_ls_pkg:is_installed() and vue_ls_pkg.get_install_path then
 	vue_language_server_path = vue_ls_pkg:get_install_path() .. "/node_modules/@vue/language-server"
 else
-	-- Fallback if Mason hasn't installed it or if you're not using Mason
-	-- This path might need adjustment based on your global npm/yarn installation
 	vue_language_server_path = vim.fn.stdpath("data")
 		.. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 end
