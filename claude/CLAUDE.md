@@ -24,6 +24,8 @@
 
 - **`run_shell_command`:** Explain the purpose and potential impact of every command before execution.
 - **`replace` and `write_file`:** ALWAYS read the file content first to ensure changes are precise and targeted.
+- Prefer `ripgrep`/`rg` over `grep` if available
+- Prefer `fdfind`/`fd` over `find` if available
 
 ## Verification & Self-Correction
 
@@ -66,3 +68,10 @@ If you're unsure about ANY aspect of a request:
 - Always add TSDoc documentation to functions, classes, and methods to explain WHY they are implemented. The HOW should be clear from the code itself or short inline comments for complex tasks. Always use TypeScript types/interfaces where applicable.
 - Tampermonkey scripts need to have the suffix '.user.js'.
 - Use Github CLI to interact with Github repositories
+
+## gstack
+
+Use the `/browse` skill from gstack for all web browsing. NEVER use `mcp__claude-in-chrome__*` tools directly.
+
+Available gstack skills:
+`/office-hours`, `/plan-ceo-review`, `/plan-eng-review`, `/plan-design-review`, `/design-consultation`, `/review`, `/ship`, `/land-and-deploy`, `/canary`, `/benchmark`, `/browse`, `/qa`, `/qa-only`, `/design-review`, `/setup-browser-cookies`, `/setup-deploy`, `/retro`, `/investigate`, `/document-release`, `/codex`, `/cso`, `/autoplan`, `/careful`, `/freeze`, `/guard`, `/unfreeze`, `/gstack-upgrade`
