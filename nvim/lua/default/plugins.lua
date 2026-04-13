@@ -49,7 +49,7 @@ vim.cmd([[
         Plug 'airblade/vim-gitgutter'
         Plug 'stevearc/conform.nvim'            " formatting
         Plug 'rosstang/dimit.nvim'              " dim inactive panes
-        Plug 'norcalli/nvim-colorizer.lua'       
+        Plug 'NvChad/nvim-colorizer.lua'
         Plug 'folke/todo-comments.nvim'
 
         " lsp
@@ -147,7 +147,7 @@ require("nvim-tree").setup({
 })
 require("lualine").setup({
 	options = {
-		theme = "catppuccin",
+		theme = "catppuccin-mocha",
 	},
 })
 
