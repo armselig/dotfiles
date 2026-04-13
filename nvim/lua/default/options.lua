@@ -6,6 +6,16 @@ g.mapleader = ' '
 
 -- general
 opt.autoindent = true
+-- On Wayland, explicitly declare wl-clipboard as provider; falls back to
+-- auto-detection (e.g. pbcopy/pbpaste on macOS) when wl-copy is not found.
+if vim.fn.executable('wl-copy') == 1 then
+    vim.g.clipboard = {
+        name  = 'wl-clipboard',
+        copy  = { ['+'] = 'wl-copy', ['*'] = 'wl-copy --primary' },
+        paste = { ['+'] = 'wl-paste', ['*'] = 'wl-paste --primary' },
+        cache_enabled = 0,
+    }
+end
 opt.clipboard = "unnamed,unnamedplus"
 opt.completeopt = "noinsert,menuone,noselect"
 opt.cursorline = true

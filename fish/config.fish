@@ -178,14 +178,8 @@ if type -q ocrmypdf
     abbr ocr "ocrmypdf -l ger --deskew --rotate-pages --clean"
 end
 
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/henneuma/.lmstudio/bin
-# End of LM Studio CLI section
-
-
-# Added by Antigravity
-fish_add_path /Users/henneuma/.antigravity/antigravity/bin
-
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
