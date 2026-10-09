@@ -184,6 +184,17 @@ require("todo-comments").setup()
 --- TREESITTER
 -- v1.0+: nvim-treesitter.configs was removed; setup() only accepts install_dir
 require("nvim-treesitter").setup()
+-- v1.0+: ensure_installed was removed; install() is a no-op for already installed parsers
+require("nvim-treesitter").install({ "vue", "html", "css", "javascript", "typescript", "lua" })
+
+--- Starts treesitter highlighting for buffers that have a parser installed.
+--- The nvim-treesitter main branch no longer enables highlighting by itself.
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("TreesitterStart", { clear = true }),
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+	end,
+})
 
 --- CONFORM
 require("conform").setup({
