@@ -191,7 +191,13 @@ end
 
 # fzf integration
 if type -q fzf
-    fzf --fish | source
+    # `fzf --fish` needs fzf >= 0.48; older (e.g. Debian) builds ship a key-bindings file instead
+    if fzf --fish >/dev/null 2>&1
+        fzf --fish | source
+    else if test -f /usr/share/doc/fzf/examples/key-bindings.fish
+        source /usr/share/doc/fzf/examples/key-bindings.fish
+        fzf_key_bindings
+    end
 end
 
 # --- Aliases (Abbreviations) ---
