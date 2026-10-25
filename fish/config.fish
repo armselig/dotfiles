@@ -257,13 +257,13 @@ end
 # --- Conditional Aliases / Fallbacks ---
 
 # Alias 'vi' to 'vim' if vim is available
-if type -q vim
-    alias vi="vim"
-end
+# if type -q vim
+#     alias vi="vim"
+# end
 
-if type -q nvim
-    alias vim="nvim"
-end
+# if type -q nvim
+#     alias vim="nvim"
+# end
 
 # Alias 'ls' to 'lsd' if lsd is available
 if type -q lsd
