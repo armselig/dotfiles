@@ -226,7 +226,7 @@ abbr cdot "$EDITOR $dotfiles_dir/install.conf.yaml"
 abbr sfish "source $XDG_CONFIG_HOME/fish/config.fish"
 
 # SSH aliases
-abbr d5n "ssh dev.n5n.io -t 'tmux new -As asl'"
+abbr n5n "ssh n5n -t 'tmux new -As n5n'"
 
 # Git aliases
 abbr gbo "git branch -u origin/"
