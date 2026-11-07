@@ -25,7 +25,7 @@ key.set({ "n", "v" }, "<leader>fp", function()
 	conform.format({
 		lsp_fallback = true,
 		async = false,
-		timeout_md = 1000,
+		timeout_ms = 1000,
 	})
 end, { desc = "Files: Prettify" })
 key.set({ "n", "v" }, "<leader>fr", "<cmd>Telescope frecency workspace=CWD <CR>", { desc = "Files: fRecent" })

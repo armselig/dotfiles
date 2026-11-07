@@ -32,6 +32,14 @@ local on_attach = function(client, bufnr)
 	end, bufopts)
 end
 
+--- Stops a server from formatting so Prettier (via conform) is the only formatter.
+--- ts_ls and vue_ls ignore the project's Prettier config, and conform's LSP
+--- fallback would otherwise let them reformat files on save.
+local disable_formatting = function(client)
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.documentRangeFormattingProvider = false
+end
+
 -- Capabilities for nvim-cmp integration
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -52,6 +60,7 @@ end
 -- lspconfig.ts_ls.setup({
 vim.lsp.config("ts_ls", {
 	on_attach = on_attach,
+	on_init = disable_formatting,
 	capabilities = capabilities,
 	filetypes = {
 		"typescript",
@@ -73,9 +82,16 @@ vim.lsp.config("ts_ls", {
 
 -- 2. Vue Language Server (vue_ls) configuration
 -- vue_ls handles the HTML and CSS parts of Vue files.
--- lspconfig.volar.setup({
-vim.lsp.config("volar", {
+-- Keep lspconfig's default on_init: it forwards vue_ls' TypeScript requests to ts_ls.
+local default_vue_ls_on_init = vim.lsp.config.vue_ls.on_init
+vim.lsp.config("vue_ls", {
 	on_attach = on_attach,
+	on_init = function(client, init_result)
+		if default_vue_ls_on_init then
+			default_vue_ls_on_init(client, init_result)
+		end
+		disable_formatting(client)
+	end,
 	capabilities = capabilities,
 	filetypes = { "vue" },
 	init_options = {
@@ -83,6 +99,29 @@ vim.lsp.config("volar", {
 			hybridMode = false, -- Set to false to let tsserver handle TypeScript in Vue files
 		},
 	},
+})
+
+-- 3. ESLint configuration
+-- Keep lspconfig's default on_attach: it creates the LspEslintFixAll command.
+local default_eslint_on_attach = vim.lsp.config.eslint.on_attach
+
+--- Runs `eslint --fix` on save for buffers ESLint is attached to.
+--- Repos usually use eslint-plugin-prettier, so this applies the same autofixes
+--- as the pre-commit hook. The autocmd is created after conform's format_on_save
+--- autocmd, so it runs after Prettier.
+local fix_eslint_on_save = function(client, bufnr)
+	if default_eslint_on_attach then
+		default_eslint_on_attach(client, bufnr)
+	end
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		group = vim.api.nvim_create_augroup("EslintFixOnSave_" .. bufnr, { clear = true }),
+		buffer = bufnr,
+		command = "LspEslintFixAll",
+	})
+end
+
+vim.lsp.config("eslint", {
+	on_attach = fix_eslint_on_save,
 })
 
 -- global lsp configs
